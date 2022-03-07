@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
+import CreateImageModal from '../CreateImageModal';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -17,6 +18,12 @@ const NavBar = () => {
         </NavLink>
         {/* </Image Modal user={user} */}
         {/* </ProfileButton user = {user} */}
+        <li>
+          <CreateImageModal />
+        </li>
+        <li>
+          <LogoutButton />
+        </li>
       </>
     )
   } else {
@@ -39,7 +46,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         {sessionLinks}
-        {/* <li>
+         {/* <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
@@ -58,9 +65,6 @@ const NavBar = () => {
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
         </li> */}
       </ul>
     </nav>

@@ -3,10 +3,10 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import NavBar from './components/Navigation/NavBar.js';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
+// import UsersList from './components/UsersList';
+// import User from './components/User';
 import { authenticate } from './store/session';
 
 function App() {
@@ -43,14 +43,17 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users' exact={true} >
+        {/* <Route path='/users' exact={true} >
           <UsersList />
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+        </Route>
+        <Route>
+          <h1>404: PAGE NOT FOUND!</h1>
         </Route>
       </Switch>
     </>
