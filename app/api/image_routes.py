@@ -1,6 +1,9 @@
-from flask import Blueprint, jsonify, redirect,request
+from flask import Blueprint, jsonify, redirect, request
+from flask_login import current_user, login_required
 from app.models import db,Image
 from app.forms import ImageForm
+from app.aws_config import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 image_routes = Blueprint("images", __name__)
 
@@ -12,9 +15,30 @@ def get_images():
     )
 
 @image_routes.route('/', methods=["POST"])
+@login_required
 def post_images():
+    if "image" not in request.files:
+        return {"errors": "image required"}, 400
+
+    image = request.files["image"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+    # flask_login allows us to get the current user from the request
+
     form = ImageForm()
-    print("--------------------",form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_image = Image(
@@ -23,6 +47,7 @@ def post_images():
             # user_id = form.data["user_id"]
         )
         form.populate_obj(new_image)
+        new_image.image=url
 
         db.session.add(new_image)
         db.session.commit()
