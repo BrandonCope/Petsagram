@@ -14,3 +14,12 @@ class Image(db.Model):
     user = db.relationship("User", back_populates="images")
     comments = db.relationship('Comment', back_populates='image')
     likes = db.relationship('Like', back_populates='image')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image': self.image,
+            'summary': self.summary,
+            'user_id': self.user_id,
+            'username': self.user.username
+        }
