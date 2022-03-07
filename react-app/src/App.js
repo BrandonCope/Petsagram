@@ -8,6 +8,7 @@ import NavBar from './components/Navigation/NavBar.js';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
 import { authenticate } from './store/session';
+import { getImages } from './store/images';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      await dispatch(getImages());
       setLoaded(true);
     })();
   }, [dispatch]);
