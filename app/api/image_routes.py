@@ -26,6 +26,26 @@ def post_images():
 
         db.session.add(new_image)
         db.session.commit()
-        return redirect("/api/images/")
+        return new_image.to_dict()
     else:
         return "Errors"
+
+@image_routes.route('/<int:id>', methods=['PUT'])
+def edit_image(id):
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        edit_image = Image.query.get(id)
+        form.populate_obj(edit_image)
+
+        db.session.commit()
+        return edit_image.to_dict()
+    else:
+        return "Errors"
+
+@image_routes.route('/<int:id>', methods=['DELETE'])
+def delete_image(id):
+    delete_image = Image.query.get(id)
+    db.session.delete(delete_image)
+    db.session.commit()
+    return { 'message': "Success" }
