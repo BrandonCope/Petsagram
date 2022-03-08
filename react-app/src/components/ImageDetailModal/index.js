@@ -1,21 +1,29 @@
-// import React, { useState } from 'react';
-// import { Modal } from '../../context/Modal';
-// import ImageDetail from './ImageDetail'
+import React, {createContext, useContext, useState} from 'react'
+import { Modal } from '../../context/Modal';
+import ImageDetail from './ImageDetail'
 
-// function ImageDetailModal() {
-//   const [showModal, setShowModal] = useState(false);
+export const ImageDetailModalContext = createContext();
+export const useImageDetailModal = () => useContext(ImageDetailModalContext)
 
-//   return (
-//     <>
+function ImageDetailModal({image}) {
+  const [showModal, setShowModal] = useState(false);
 
-//       <button className='followModalButton' onClick={() => setShowModal(true)}>Comment</button>
-//       {showModal && (
-//         <Modal onClose={() => setShowModal(false)}>
-//           <ImageDetail />
-//         </Modal>
-//       )}
-//     </>
-//   );
-// }
 
-// export default ImageDetailModal;
+  return (
+    <ImageDetailModalContext.Provider
+        value={{
+            showModal,
+            setShowModal
+        }}
+        >
+      <button className='followModalButton' onClick={() => setShowModal(true)}><img src={image.image}></img></button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <ImageDetail image={image} />
+        </Modal>
+      )}
+    </ImageDetailModalContext.Provider>
+  );
+}
+
+export default ImageDetailModal;

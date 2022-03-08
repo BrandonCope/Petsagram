@@ -2,10 +2,14 @@ import EditImageModal from "../EditImageModal"
 import { useEditModal } from ".";
 import { deleteImage } from "../../store/images"
 import { useDispatch } from "react-redux";
+import { useImageDetailModal } from "../ImageDetailModal";
 
 
-const EditDeleteImage = ({image, setShowModal}) => {
+
+const EditDeleteImage = ({image}) => {
     const {setShowEditModal} = useEditModal()
+    const {setShowModal} = useImageDetailModal()
+
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
