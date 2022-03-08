@@ -79,7 +79,7 @@ const imagesReducer = (state= {}, action) => {
             return newState;
         case REMOVE:
             newState = {...state};
-            delete newState[action.delete_image.id];
+            delete newState[action.remove_image];
             return newState;
         default:
             return state;

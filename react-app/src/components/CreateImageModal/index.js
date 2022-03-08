@@ -10,8 +10,9 @@ function CreateImageModal() {
       <button className='createImageModalButton' onClick={() => setShowModal(true)}>Create Image</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateImage />
+          <CreateImage setShowModal={setShowModal} />
         </Modal>
+
       )}
     </>
   );
