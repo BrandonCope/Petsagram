@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import {editImage} from '../../store/images'
 import { useDispatch} from 'react-redux'
 
-function EditImage() {
+function EditImageForm({image, setShowModal}) {
     const dispatch = useDispatch();;
     const [summary, setSummary] = useState('');
 
+    const id = image.id;
     const handleSubmit = async e => {
        try{
            e.preventDefault();
@@ -13,10 +14,12 @@ function EditImage() {
             const edit_image = {
                 summary: summary,
             }
-            dispatch(editImage(edit_image))
+            dispatch(editImage(edit_image, id))
+
        } catch(error) {
            console.log(error)
        }
+       setShowModal(false)
     }
 
     return (
@@ -38,4 +41,4 @@ function EditImage() {
     )
 }
 
-export default EditImage;
+export default EditImageForm;
