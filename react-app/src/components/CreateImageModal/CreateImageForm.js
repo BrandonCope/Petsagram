@@ -7,31 +7,50 @@ function CreateImage() {
     const [imageUrl, setImageUrl] = useState('');
     const [summary, setSummary] = useState('');
     const [imageLoading, setImageLoading] = useState(false);
-    const user = useSelector((state) => state.session.user);
+    const user = useSelector((state) => state.session.user?.id);
 
 
     const updateImage = (e) => {
         const file = e.target.files[0];
+        console.log(file)
         setImageUrl(file);
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = async e => {
+       try{
+           e.preventDefault();
 
-        const new_image = {
-            image: imageUrl,
-            summary: summary,
-            user
-        }
+            const formData = new FormData()
+            // console.log("imageUrl", {imageUrl})
+            formData.append("image", imageUrl)
+            // console.log("imageU", formData['file'])
+            // formData.append("url", imageUrl.file?.name)
+            formData.append('summary', summary)
+            formData.append('user_id', user)
+            console.log(formData)
+            console.log(imageUrl)
+
+            // const new_image = {
+            //     // image: imageUrl,
+            //     summary: summary,
+            //     user_id: user
+            // }
+
+            dispatch(createImage(formData))
+
+       } catch(error) {
+           console.log(error)
+       }
     }
 
     return (
         <div className="image-post-form">
-            <form >
+            <form onSubmit={handleSubmit} >
                 <h2>Post Your Image</h2>
                 <input
                 type='file'
                 accept="image/*"
+                name="image"
                 onChange={updateImage}
                 />
                 {/* {(imageLoading)} */}
@@ -44,8 +63,6 @@ function CreateImage() {
                 maxLength='255'
                 required
                 />
-
-  
                 <button type='submit'>Submit</button>
             </form>
         </div>
