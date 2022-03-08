@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, redirect, request
 from flask_login import current_user, login_required
 from app.models import db,Image
-from app.forms import ImageForm
+from app.forms import ImageForm,EditImageForm
 from app.aws_config import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -29,9 +29,9 @@ def post_images():
         return {"errors": "file type not permitted"}, 400
 
     image.filename = get_unique_filename(image.filename)
-    print(image.filename)
+
     upload = upload_file_to_s3(image)
-    print("---------------", upload)
+
 
     if "url" not in upload:
         print("hit third error")
@@ -62,8 +62,9 @@ def post_images():
 
 @image_routes.route('/<int:id>', methods=['PUT'])
 def edit_image(id):
-    form = ImageForm()
+    form = EditImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         edit_image = Image.query.get(id)
         form.populate_obj(edit_image)
