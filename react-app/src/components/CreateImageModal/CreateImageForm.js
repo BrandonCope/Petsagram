@@ -1,13 +1,15 @@
 import React, { useState } from "react"
 import {createImage} from '../../store/images'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
-function CreateImage() {
+function CreateImage({setShowModal}) {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState('');
     const [summary, setSummary] = useState('');
     const [imageLoading, setImageLoading] = useState(false);
     const user = useSelector((state) => state.session.user?.id);
+    const history = useHistory()
 
 
     const updateImage = (e) => {
@@ -37,6 +39,8 @@ function CreateImage() {
             // }
 
             dispatch(createImage(formData))
+            setShowModal(false)
+            history.push(`/profiles/${user}`)
 
        } catch(error) {
            console.log(error)
@@ -65,6 +69,7 @@ function CreateImage() {
                 />
                 <button type='submit'>Submit</button>
             </form>
+            <button onClick={() => setShowModal(false)}>Cancel</button>
         </div>
     )
 }

@@ -8,7 +8,7 @@ const ProfilePage = () => {
     const { id } = useParams()
     const [showModal, setShowModal] = useState(false);
     const images = useSelector((state)=> state.images)
-    const imageArr = Object.values(images)
+    const imageArr = Object.values(images).reverse()
     const filterImageArry= imageArr.filter(({user_id}) => user_id === +id)
 
     return (
@@ -19,7 +19,7 @@ const ProfilePage = () => {
             </img></button>
                 {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <ImageDetail image={image} />
+                    <ImageDetail image={image} setShowModal={setShowModal} />
                 </Modal>
             )}
             </div>

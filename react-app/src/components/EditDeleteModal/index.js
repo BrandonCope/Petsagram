@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditDeleteImage from './EditDeleteImage';
 
-function EditDeleteModal({image}) {
-  const [showModal, setShowModal] = useState(false);
+export const EditModalContext = createContext()
+export const useEditModal = () => useContext(EditModalContext)
+
+function EditDeleteModal({image, setShowModal}) {
+  const [showEditModal, setShowEditModal] = useState(false);
 
   return (
-    <>
-      <button className='editDeleteImageModalButton' onClick={() => setShowModal(true)}>...</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-            <EditDeleteImage image={image} setShowModal= />
+    <EditModalContext.Provider
+      value={{
+        showEditModal,
+        setShowEditModal
+      }}
+      >
+      <button className='editDeleteImageModalButton' onClick={() => setShowEditModal(true)}>...</button>
+      {showEditModal && (
+        <Modal onClose={() => setShowEditModal(false)}>
+            <EditDeleteImage image={image} setShowModal={setShowModal}/>
         </Modal>
       )}
-    </>
+    </EditModalContext.Provider>
   );
 }
 

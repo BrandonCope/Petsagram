@@ -2,7 +2,7 @@ import EditDeleteModal from "../EditDeleteModal"
 import './ImageDetail.css'
 
 
-const ImageDetail = ({image}) => {
+const ImageDetail = ({image, setShowModal}) => {
 
     console.log(image);
 
@@ -11,16 +11,20 @@ const ImageDetail = ({image}) => {
             <div>
                 <img className="image-detail-image" src={image.image}/>
             </div>
-            <div>
-                <p>
-                    {image.username}
-                </p>
-                    <EditDeleteModal image={image} />
-                <p>
-                    {image.summary}
-                </p>
+            <div className="image-detail-content">
+                <div className="user-div">
+                    <p> {image.username} </p>
+                    <EditDeleteModal image={image} setShowModal={setShowModal}/>
+                    <button onClick={() => setShowModal(false)}>X</button>
+
+                </div>
                 <div>
-                {/* <Comments /> */}
+                    <p>
+                        {image.summary}
+                    </p>
+                    <div>
+                    {/* <Comments /> */}
+                    </div>
                 </div>
             </div>
         </div>
