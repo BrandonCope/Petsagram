@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import {editImage} from '../../store/images'
 import { useDispatch} from 'react-redux'
+import { useEditModal } from '../EditDeleteModal'
 
 function EditImageForm({image, setShowModal}) {
     const dispatch = useDispatch();;
     const [summary, setSummary] = useState('');
+    const { setShowEditModal } = useEditModal();
 
     const id = image.id;
     const handleSubmit = async e => {
@@ -20,6 +22,7 @@ function EditImageForm({image, setShowModal}) {
            console.log(error)
        }
        setShowModal(false)
+       setShowEditModal(false)
     }
 
     return (
