@@ -7,7 +7,7 @@ const loadImages = images => ({ type: LOAD, images })
 
 const addImage = new_image => ({ type: ADD, new_image })
 
-const updateImage = update_image => ({ type: UPDATE, update_image })
+const updateImage = edit_image => ({ type: UPDATE, edit_image })
 
 const removeImage = remove_image => ({ type: REMOVE, remove_image })
 
@@ -34,8 +34,8 @@ export const createImage = (payload) => async dispatch => {
     return response;
 }
 
-export const editImage = (payload) => async dispatch => {
-    const response = await fetch(`/api/images/${payload.id}`, {
+export const editImage = (payload, id) => async dispatch => {
+    const response = await fetch(`/api/images/${id}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"

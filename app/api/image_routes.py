@@ -70,6 +70,7 @@ def edit_image(id):
         form.populate_obj(edit_image)
 
         db.session.commit()
+        print('......', edit_image.to_dict())
         return edit_image.to_dict()
     else:
         return "Errors"

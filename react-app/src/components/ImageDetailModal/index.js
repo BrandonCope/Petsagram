@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { Modal } from '../../context/Modal';
-// import SignUpForm from './SignUpForm';
+// import ImageDetail from './ImageDetail'
 
-function SignUpFormModal() {
-  const [showModal, setShowModal] = useState(false);
+// function ImageDetailModal() {
+//   const [showModal, setShowModal] = useState(false);
 
-  return (
-    <>
+//   return (
+//     <>
 
-      <button className='followModalButton' onClick={() => setShowModal(true)}>Comment</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          {/* <ImageDetail /> */}
-        </Modal>
-      )}
-    </>
-  );
-}
+//       <button className='followModalButton' onClick={() => setShowModal(true)}>Comment</button>
+//       {showModal && (
+//         <Modal onClose={() => setShowModal(false)}>
+//           <ImageDetail />
+//         </Modal>
+//       )}
+//     </>
+//   );
+// }
 
-export default SignUpFormModal;
+// export default ImageDetailModal;
