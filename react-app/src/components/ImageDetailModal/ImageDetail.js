@@ -1,8 +1,12 @@
 import EditDeleteModal from "../EditDeleteModal"
 import './ImageDetail.css'
+import { useImageDetailModal } from "./index";
 
 
-const ImageDetail = ({image, setShowModal}) => {
+
+
+const ImageDetail = ({image}) => {
+    const {setShowModal} = useImageDetailModal()
 
     console.log(image);
 
@@ -14,7 +18,7 @@ const ImageDetail = ({image, setShowModal}) => {
             <div className="image-detail-content">
                 <div className="user-div">
                     <p> {image.username} </p>
-                    <EditDeleteModal image={image} setShowModal={setShowModal}/>
+                    <EditDeleteModal image={image} />
                     <button onClick={() => setShowModal(false)}>X</button>
 
                 </div>
