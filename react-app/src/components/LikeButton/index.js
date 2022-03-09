@@ -21,7 +21,7 @@ const LikeButton = ({ image }) => {
       } else {
         setHeart(false);
       }
-    }, [stateLikes])
+    }, [likes])
 
     const [heart, setHeart] = useState(false);
 
