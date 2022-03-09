@@ -25,8 +25,6 @@ const ImageDetail = ({image}) => {
       sessionLinks = (
         <>
         <button>...</button>
-          {/* <SignupFormModal /> */}
-          {/* <LoginFormModal /> */}
         </>
       )
 

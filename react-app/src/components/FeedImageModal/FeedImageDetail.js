@@ -1,4 +1,5 @@
 import EditDeleteModal from '../EditDeleteModal'
+import FollowUnfollowModal from '../FollowUnfollowModal';
 import './FeedImageDetail.css'
 import { useImageDetailModal } from "./index";
 import LikeButton from '../LikeButton';
@@ -8,7 +9,7 @@ import LikeCounterModal from '../LikeCounter';
 const FeedImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
 
-    console.log(image);
+    // console.log(image);
 
     return (
         <div className="image-detail-component-page">
@@ -18,7 +19,8 @@ const FeedImageDetail = ({image}) => {
             <div className="image-detail-content">
                 <div className="user-div">
                     <p> {image.username} </p>
-                    <button>...</button>
+                    {/* <button>...</button> */}
+                    <FollowUnfollowModal image={image}/>
                     {/* FOLLOW/UNFOLLOW MODAL */}
                     {/* <EditDeleteModal image={image} /> */}
                     <button onClick={() => setShowModal(false)}>X</button>
