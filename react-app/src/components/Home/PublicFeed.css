@@ -1,0 +1,11 @@
+.feed-container {
+    width: 500px;
+    height: 700px;
+    border: solid;
+    border-radius: 5px;
+}
+
+.feed-images {
+    width: 500px;
+    height: 500px;
+}

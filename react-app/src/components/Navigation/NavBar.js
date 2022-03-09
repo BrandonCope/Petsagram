@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import CreateImageModal from '../CreateImageModal';
+import './NavBar.css'
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -13,7 +14,7 @@ const NavBar = () => {
       <>
         <NavLink to="/" >
           <li>
-            <button>Home</button>
+            <button className='home-button'><i className="fa-solid fa-house"></i></button>
           </li>
         </NavLink>
         {/* </Image Modal user={user} */}
@@ -38,14 +39,14 @@ const NavBar = () => {
 
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" >
+    <nav className='nav-container'>
+          <NavLink className="Nav-logo-container" to="/" >
             <button>Logo</button>
           </NavLink>
-        </li>
+      <ul>
+        <div className='nav-session-links'>
         {sessionLinks}
+        </div>
          {/* <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home

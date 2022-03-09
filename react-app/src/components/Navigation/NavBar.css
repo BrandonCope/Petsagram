@@ -1,0 +1,31 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nav-session-links {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    list-style-type: none;
+}
+
+.Nav-logo-container {
+    display: flex;
+    align-items: center;
+    /* text-decoration: none; */
+}
+
+.home-button {
+    border-radius: 5px;
+    border: 0;
+    background-color: transparent;
+}
+
+.fa-solid.fa-house {
+    font-size: 26px;
+}
+
+
+
