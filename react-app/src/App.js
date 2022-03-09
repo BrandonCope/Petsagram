@@ -5,6 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar.js';
 import ProfilePage from './components/Profile';
+import HomePage from './components/Home';
 // import ProtectedRoute from './components/auth/ProtectedRoute';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
@@ -56,7 +57,7 @@ function App() {
           <User />
         </ProtectedRoute> */}
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          {user ? <HomePage /> : <LoginForm />}
         </Route>
         <Route>
           <h1>404: PAGE NOT FOUND!</h1>

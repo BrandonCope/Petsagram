@@ -1,16 +1,14 @@
-import EditDeleteModal from "../EditDeleteModal"
-import './ImageDetail.css'
+import EditDeleteModal from '../EditDeleteModal'
+import './FeedImageDetail.css'
 import { useImageDetailModal } from "./index";
 
 
 
 
-const ImageDetail = ({image}) => {
+const FeedImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
 
     console.log(image);
-
-    
 
     return (
         <div className="image-detail-component-page">
@@ -20,7 +18,9 @@ const ImageDetail = ({image}) => {
             <div className="image-detail-content">
                 <div className="user-div">
                     <p> {image.username} </p>
-                    <EditDeleteModal image={image} />
+                    <button>...</button>
+                    {/* FOLLOW/UNFOLLOW MODAL */}
+                    {/* <EditDeleteModal image={image} /> */}
                     <button onClick={() => setShowModal(false)}>X</button>
 
                 </div>
@@ -37,4 +37,4 @@ const ImageDetail = ({image}) => {
     )
 }
 
-export default ImageDetail;
+export default FeedImageDetail;
