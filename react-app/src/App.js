@@ -11,6 +11,7 @@ import HomePage from './components/Home';
 // import User from './components/User';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
+import { getLikes } from './store/likes';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,7 @@ function App() {
     (async () => {
       await dispatch(authenticate());
       await dispatch(getImages());
+      await dispatch(getLikes());
       setLoaded(true);
     })();
   }, [dispatch]);
