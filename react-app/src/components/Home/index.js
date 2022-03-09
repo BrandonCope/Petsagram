@@ -36,16 +36,18 @@ const HomePage = () => {
     }
 
     return (
-        <div>
+        <div className="body-div">
             <div>
-                <h1>Home Page</h1>
+                <h1 className="home-h1">Home Page</h1>
             </div>
+            <div>
             <button onClick={showPublic}>
                 Public Feed
             </button>
             <button onClick={showFollow}>
                 HomeFeed
             </button>
+            </div>
             {Feed}
         </div>
     )

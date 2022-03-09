@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './auth.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,16 +32,19 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={onLogin}>
+    <div className='signup-body'>
+    <div className='login-form-container'>
+      <h1>Petsagram</h1>
+      <form className='login-form' onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'></label>
           <input
+            className='login-input'
             name='email'
             type='text'
             placeholder='Email'
@@ -49,22 +53,24 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'></label>
           <input
+            className='login-input'
             name='password'
             type='password'
             placeholder='Password'
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
         </div>
+          <button className='login-form-submit' type='submit'>Login</button>
       </form>
-      <div>
+      <div className='sign-up-redirect-container'>
         <p>Don't have an account?</p>
-        <NavLink to="/sign-up">Sign Up
-          </NavLink>
+        <NavLink className='sign-up-redirect' to="/sign-up">Sign Up</NavLink>
       </div>
+    </div>
+
     </div>
   );
 };
