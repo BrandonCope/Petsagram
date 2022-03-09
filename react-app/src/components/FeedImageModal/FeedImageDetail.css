@@ -1,0 +1,18 @@
+.image-detail-image {
+    width: 400px;
+    height: 400px;
+}
+
+.image-detail-component-page {
+    display: flex;
+}
+
+.user-div {
+    display: flex;
+    height: 30px;
+}
+
+.image-detail-content{
+    display: flex;
+    flex-direction: column;
+}
