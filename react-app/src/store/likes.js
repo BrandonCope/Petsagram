@@ -39,6 +39,7 @@ export const deleteLike = (id) => async dispatch => {
         method: 'DELETE'
     });
     if(response.ok) {
+        console.log("response ok");
         const message = await response.json();
         dispatch(removeLike(id));
         return message;
@@ -59,7 +60,7 @@ const likesReducer = (state= {}, action) => {
             return newState;
         case REMOVE:
             newState = {...state};
-            delete newState[action.remove_like.id];
+            delete newState[action.remove_like];
             return newState;
         default:
             return state;
