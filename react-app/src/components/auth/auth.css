@@ -1,0 +1,101 @@
+/* LoginForm */
+body {
+    background-color: ghostwhite;
+}
+/*
+#root {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    align-items: flex-end;
+    height: 500px;
+} */
+
+.login-form-container {
+    border: solid;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 130px;
+    /* padding-bottom: 20px; */
+}
+
+.login-input {
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.login-form-submit {
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+
+}
+
+.sign-up-redirect-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 210px;
+
+}
+
+.sign-up-redirect {
+    text-decoration: none;
+    color: skyblue;
+    font-weight: bold;
+}
+
+/* Signup Form */
+.signup-body {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    align-items: flex-end;
+    height: 500px;
+}
+
+.signup-form-container {
+    border: solid;
+    width: 300px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 240px;
+    /* padding-bottom: 20px; */
+}
+
+.login-redirect-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+
+}
+
+.login-redirect {
+    text-decoration: none;
+    color: skyblue;
+    font-weight: bold;
+}

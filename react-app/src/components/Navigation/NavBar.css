@@ -1,20 +1,30 @@
-.nav-container {
-    display: flex;
-    justify-content: space-between;
+.nav-body-div {
 
 }
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+}
+
+
 
 .nav-session-links {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 150px;
     list-style-type: none;
 }
 
 .Nav-logo-container {
     display: flex;
     align-items: center;
-    /* text-decoration: none; */
+    text-decoration: none;
+    color: inherit;
 }
 
 .home-button {
@@ -24,8 +34,48 @@
 }
 
 .fa-solid.fa-house {
-    font-size: 26px;
+    font-size: 30px;
 }
 
 
+.profileContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
 
+.profileButton {
+    border-radius: 5px;
+    border: 0;
+    width: 50px;
+    background-color: transparent;
+}
+
+.fa-solid.fa-user {
+    font-size: 30px;
+}
+
+.profile-dropdown{
+    border: black solid;
+    border-radius: 10px;
+    top: 60px;
+    height: 50px;
+    width: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    align-items: center;
+    list-style: none;
+    position: fixed;
+}
+
+.loggedInUserNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    font-size: medium;
+    height: 30px;
+}

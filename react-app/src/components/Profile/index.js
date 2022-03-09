@@ -5,6 +5,7 @@ import ImageDetail from '../ImageDetailModal/ImageDetail'
 import { Modal } from '../../context/Modal'
 // import { EditModalContext } from '../EditDeleteModal'
 import ImageDetailModal from '../ImageDetailModal'
+import './Profile.css'
 
 export const ImageDetailModalContext = createContext();
 export const useImageDetailModal = () => useContext(ImageDetailModalContext)
@@ -16,7 +17,8 @@ const ProfilePage = () => {
     const filterImageArry= imageArr.filter(({user_id}) => user_id === +id)
 
     return (
-      <div>
+      <div className='profile-div'>
+          <h2>User Profile</h2>
             {filterImageArry.map((image) =>
                 <ImageDetailModal image={image} />
             )}

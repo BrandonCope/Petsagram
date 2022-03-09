@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
 import CreateImageModal from '../CreateImageModal';
+import ProfileButton from './ProfileButton';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -23,7 +24,10 @@ const NavBar = () => {
           <CreateImageModal />
         </li>
         <li>
-          <LogoutButton />
+          {/* <LogoutButton /> */}
+        </li>
+        <li>
+          <ProfileButton user={user} />
         </li>
       </>
     )
@@ -39,9 +43,10 @@ const NavBar = () => {
 
 
   return (
+    <div className='nav-body-div'>
     <nav className='nav-container'>
           <NavLink className="Nav-logo-container" to="/" >
-            <button>Logo</button>
+            <h2>Petsagram</h2>
           </NavLink>
       <ul>
         <div className='nav-session-links'>
@@ -69,6 +74,8 @@ const NavBar = () => {
         </li> */}
       </ul>
     </nav>
+
+    </div>
   );
 }
 

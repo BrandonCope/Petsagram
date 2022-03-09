@@ -9,3 +9,10 @@
     width: 500px;
     height: 500px;
 }
+
+.body-div {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -43,16 +43,20 @@ const SignUpForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={onSignUp}>
+    <div className='signup-body'>
+    <div className='signup-form-container'>
+      <h1>Petsagram</h1>
+      <form className='signup-form'  onSubmit={onSignUp}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label>User Name</label>
+          <label></label>
           <input
+            placeholder='Username'
+            className='login-input'
             type='text'
             name='username'
             onChange={updateUsername}
@@ -60,8 +64,10 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Email</label>
+          <label></label>
           <input
+            placeholder='Email'
+            className='login-input'
             type='text'
             name='email'
             onChange={updateEmail}
@@ -69,8 +75,10 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Password</label>
+          <label></label>
           <input
+            placeholder='Password'
+            className='login-input'
             type='password'
             name='password'
             onChange={updatePassword}
@@ -78,8 +86,10 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div>
-          <label>Repeat Password</label>
+          <label></label>
           <input
+            placeholder='Confirm Password'
+            className='login-input'
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
@@ -87,13 +97,13 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
-        <button type='submit'>Sign Up</button>
+        <button className='login-form-submit' type='submit'>Sign Up</button>
       </form>
-      <div>
+      <div className='login-redirect-container'>
         <p>Have an account?</p>
-        <NavLink to="/">Login
-        </NavLink>
+        <NavLink className='login-redirect' to="/">Login </NavLink>
       </div>
+    </div>
 
     </div>
   );
