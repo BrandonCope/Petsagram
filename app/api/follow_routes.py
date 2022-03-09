@@ -28,12 +28,12 @@ def post_follows():
 
         user = User.query.get(form.data['user_id'])
         target = User.query.get(form.data['target_id'])
+        print("user target ===================  = = = = == = = == =",target)
 
-        target.followers.append(user)
+        user.followings.append(target)
 
         db.session.add(target)
         db.session.commit()
-
 
         return user.to_dict_follow()
 
@@ -46,8 +46,8 @@ def delete_follows():
         delete_follow = User.query.get(form.data['target_id'])
         user = User.query.get(form.data['user_id'])
 
-        delete_follow.followers.remove(user)
+        user.followings.remove(delete_follow)
 
         db.session.commit()
 
-        return delete_follow.to_dict_follow()
+        return user.to_dict_follow()

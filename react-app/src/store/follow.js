@@ -69,11 +69,11 @@ const initialState = {
 
 const followsReducer = (state = initialState, action) => {
     let newState;
+    let followingList = {}
     switch(action.type) {
         case LOAD:
             newState = {};
             let followersList = {}
-            let followingList = {}
 
             action.follows.followers.forEach(follower => followersList[follower.id] = follower.username)
             action.follows.following.forEach(following => followingList[following.id] = following.username)
@@ -85,12 +85,16 @@ const followsReducer = (state = initialState, action) => {
         case ADD:
             newState = {...state, followers: {...state.followers}, following: {...state.following}}
             // newState.followers = {...newState.followers, [action.new_follow.followers.id]: action.new_follow.followers}
-            newState.following = {...newState.following, [action.new_follow.following[0].id]: action.new_follow.following[0]}
-            console.log(action.new_follow.following[0])
+            action.new_follow.following.forEach(following => newState.following[following.id] = following.username)
+
+            // newState.following = {...newState.following, [action.new_follow.following[0].id]: action.new_follow.following[0]}
+            // console.log(action.new_follow.following[0])
             return newState;
         case REMOVE:
-            newState = {...state, followers: {...state.followers}, following: {...state.following}}
-            delete newState.following[action.remove_follow.following.id]
+            newState = {...state, followers: {...state.followers}}
+            
+            action.remove_follow.following.forEach(following => followingList[following.id] = following.username)
+            newState.following = followingList
             return newState
 
         default:
