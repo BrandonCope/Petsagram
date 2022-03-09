@@ -2,8 +2,8 @@ import EditDeleteModal from '../EditDeleteModal'
 import FollowUnfollowModal from '../FollowUnfollowModal';
 import './FeedImageDetail.css'
 import { useImageDetailModal } from "./index";
-
-
+import LikeButton from '../LikeButton';
+import LikeCounterModal from '../LikeCounter';
 
 
 const FeedImageDetail = ({image}) => {
@@ -31,7 +31,9 @@ const FeedImageDetail = ({image}) => {
                         {image.summary}
                     </p>
                     <div>
+                        <LikeButton image={ image } />
                     {/* <Comments /> */}
+                    <LikeCounterModal image={ image } />
                     </div>
                 </div>
             </div>

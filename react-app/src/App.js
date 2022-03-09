@@ -12,6 +12,7 @@ import HomePage from './components/Home';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
 import { getFollows_user } from './store/follow';
+import { getLikes } from './store/likes';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +32,7 @@ function App() {
       await dispatch(authenticate());
       await dispatch(getImages());
       // await dispatch(getFollows_user)
+      await dispatch(getLikes());
       setLoaded(true);
     })();
   }, [dispatch]);

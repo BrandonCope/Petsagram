@@ -12,3 +12,11 @@ class Like(db.Model):
 
     user = db.relationship("User", back_populates="likes")
     image = db.relationship("Image", back_populates="likes")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image_id': self.image_id,
+            'user_id': self.user_id,
+            'username': self.user.username
+        }
