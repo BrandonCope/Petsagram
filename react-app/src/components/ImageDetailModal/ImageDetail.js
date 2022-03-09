@@ -2,6 +2,8 @@ import EditDeleteModal from "../EditDeleteModal"
 import './ImageDetail.css'
 import { useImageDetailModal } from "./index";
 import { useSelector } from 'react-redux';
+import LikeButton from "../LikeButton";
+import LikeCounterModal from "../LikeCounter";
 
 
 
@@ -50,7 +52,9 @@ const ImageDetail = ({image}) => {
                         {image.summary}
                     </p>
                     <div>
+                      <LikeButton image={ image } />
                     {/* <Comments /> */}
+                      <LikeCounterModal image={ image } />
                     </div>
                 </div>
             </div>

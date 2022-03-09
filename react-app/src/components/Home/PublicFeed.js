@@ -15,7 +15,7 @@ const PublicFeed = () => {
     return (
         <div>
             {filterImagesArr?.map((image) => (
-                <div className="feed-container">
+                <div className="feed-container" key={image.id}>
                     <Link to={`/profiles/${image.user_id}`}>
                         {image.username}
                     </Link>
