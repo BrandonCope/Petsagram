@@ -20,9 +20,9 @@ class User(db.Model, UserMixin):
     followers = db.relationship(
         "User",
         secondary=follows,
-        primaryjoin=(follows.c.user_id == id),
-        secondaryjoin=(follows.c.target_id == id),
-        backref=db.backref("following", lazy="dynamic"),
+        primaryjoin=(follows.c.target_id == id),
+        secondaryjoin=(follows.c.user_id == id),
+        backref=db.backref("followings", lazy="dynamic"),
         lazy="dynamic"
     )
 
@@ -41,5 +41,11 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+        }
+
+    def to_dict_follow(self):
+        return {
+            'followers': [{'id':follower.id,'username':follower.username} for follower in self.followers],
+            'following': [{'id':following.id,'username':following.username} for following in self.followings]
         }

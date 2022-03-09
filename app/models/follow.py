@@ -5,3 +5,4 @@ follows = db.Table(
     db.Column('target_id', db.Integer, db.ForeignKey('users.id')),
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'))
 )
+
