@@ -16,7 +16,7 @@ function ImageDetailModal({image}) {
             setShowModal
         }}
         >
-      <button className='followModalButton' onClick={() => setShowModal(true)}><img src={image.image}></img></button>
+      <button className='followModalButton' onClick={() => setShowModal(true)}><img className='user-pictures' src={image.image}></img></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ImageDetail image={image} />

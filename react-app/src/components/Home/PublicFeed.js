@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 import { Link, NavLink } from "react-router-dom"
 // import ImageDetail from "../ImageDetailModal/ImageDetail"
 import FeedImageModal from "../FeedImageModal"
+import './PublicFeed.css'
 
 const PublicFeed = () => {
 
@@ -14,12 +15,12 @@ const PublicFeed = () => {
     return (
         <div>
             {filterImagesArr?.map((image) => (
-                <div>
-                    <img src={image.image}>
-                    </img>
+                <div className="feed-container">
                     <Link to={`/profiles/${image.user_id}`}>
                         {image.username}
                     </Link>
+                    <img className="feed-images" src={image.image}>
+                    </img>
                     <FeedImageModal image={image}/>
                 </div>
             ))}
