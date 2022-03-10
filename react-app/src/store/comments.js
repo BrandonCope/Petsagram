@@ -24,7 +24,10 @@ export const getComments = () => async dispatch => {
 export const createComment = (payload) => async dispatch => {
     const response = await fetch('/api/comments/', {
         method: 'POST',
-        body: payload,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
     });
     if(response.ok) {
         const new_comment = await response.json();
