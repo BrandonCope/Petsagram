@@ -5,14 +5,10 @@ import { useSelector } from 'react-redux';
 import LikeButton from "../LikeButton";
 import LikeCounterModal from "../LikeCounter";
 import FollowUnfollowModal from "../FollowUnfollowModal";
-
-
-
+import DisplayComments from "../DisplayComments";
 
 const ImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
-
-   
 
     const user = useSelector(state => state.session.user)
     let sessionLinks;
@@ -54,6 +50,9 @@ const ImageDetail = ({image}) => {
                       <LikeButton image={ image } />
                     {/* <Comments /> */}
                       <LikeCounterModal image={ image } />
+                    </div>
+                    <div>
+                      <DisplayComments image={ image }/>
                     </div>
                 </div>
             </div>
