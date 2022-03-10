@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 import FeedImageModal from "../FeedImageModal"
 import FollowUnfollowModal from "../FollowUnfollowModal"
 import './PublicFeed.css'
+import CreateCommentForm from "../CommentForm"
+import FeedDisplayComments from "../FeedDisplayComments"
 
 const PublicFeed = () => {
 
@@ -11,6 +13,8 @@ const PublicFeed = () => {
     const images = useSelector((state) => state.images)
     const imagesArr = Object.values(images).reverse()
     const filterImagesArr = imagesArr.filter((image) => image?.user_id !== +user?.id)
+
+    
 
     return (
         <div>
@@ -26,6 +30,10 @@ const PublicFeed = () => {
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <FeedImageModal image={image}/>
+                    <FeedDisplayComments image={image} />
+                    <div>
+                        <CreateCommentForm image={image} />
+                    </div>
                 </div>
             ))}
         </div>

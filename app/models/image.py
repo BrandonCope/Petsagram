@@ -12,8 +12,8 @@ class Image(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now(), server_onupdate=db.func.now())
 
     user = db.relationship("User", back_populates="images")
-    comments = db.relationship('Comment', back_populates='image')
-    likes = db.relationship('Like', back_populates='image')
+    comments = db.relationship('Comment', back_populates='image', cascade = "all, delete-orphan")
+    likes = db.relationship('Like', back_populates='image', cascade = "all, delete-orphan")
 
     def to_dict(self):
         return {

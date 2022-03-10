@@ -4,6 +4,8 @@ import { useImageDetailModal } from "./index";
 import LikeButton from '../LikeButton';
 import LikeCounterModal from '../LikeCounter';
 import { Link } from "react-router-dom"
+import CreateCommentForm from '../CommentForm';
+import DisplayComments from '../DisplayComments';
 
 
 const FeedImageDetail = ({image}) => {
@@ -31,6 +33,12 @@ const FeedImageDetail = ({image}) => {
                         <LikeButton image={ image } />
                     {/* <Comments /> */}
                     <LikeCounterModal image={ image } />
+                    </div>
+                    <div>
+                        <DisplayComments image={image} />
+                    </div>
+                    <div>
+                        <CreateCommentForm image={image} />
                     </div>
                 </div>
             </div>

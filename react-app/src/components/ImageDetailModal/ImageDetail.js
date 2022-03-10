@@ -6,6 +6,7 @@ import LikeButton from "../LikeButton";
 import LikeCounterModal from "../LikeCounter";
 import FollowUnfollowModal from "../FollowUnfollowModal";
 import DisplayComments from "../DisplayComments";
+import CreateCommentForm from "../CommentForm";
 
 const ImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
@@ -48,11 +49,13 @@ const ImageDetail = ({image}) => {
                     </p>
                     <div>
                       <LikeButton image={ image } />
-                    {/* <Comments /> */}
                       <LikeCounterModal image={ image } />
                     </div>
                     <div>
                       <DisplayComments image={ image }/>
+                    </div>
+                    <div>
+                      <CreateCommentForm image = {image} />
                     </div>
                 </div>
             </div>
