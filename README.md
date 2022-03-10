@@ -94,7 +94,7 @@ hurt to run it again.
 9. Release your docker container to heroku
 
       ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
+      git
       ```
 
 10. set up your database
