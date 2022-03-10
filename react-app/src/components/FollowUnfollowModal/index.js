@@ -9,6 +9,7 @@ export const useFollowUnfollowModal = () => useContext(FollowUnfollowModalContex
 function FollowUnfollowModal({image}) {
   const [showModal, setShowModal] = useState(false);
 
+
   return (
     <FollowUnfollowModalContext.Provider
       value={{
