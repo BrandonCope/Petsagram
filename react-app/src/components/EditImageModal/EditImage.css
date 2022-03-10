@@ -1,0 +1,27 @@
+.image-edit-button {
+    background-color: transparent;
+    border: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+    width: 180px;
+}
+
+.image-edit-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+}
+
+.image-edit-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 500px;
+    justify-content: space-around;
+}
+
+.summary-textarea {
+    resize: none;
+}

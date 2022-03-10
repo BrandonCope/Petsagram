@@ -7,11 +7,50 @@
     margin: 0;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 .fa-solid.fa-square-plus{
     /* width: 30px;
     height: 30px; */
-    font-size: 30px;
+    font-size: 33px;
     /* padding: 0; */
 }
+
+/* Post Form */
+
+.image-post-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    /* justify-content: space-between; */
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 500px;
+    justify-content: space-around;
+
+}
+
+.post-button {
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#file-upload-button {
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+/*
+input[type="file"] {
+    display: none;
+} */

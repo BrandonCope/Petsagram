@@ -99,3 +99,11 @@ body {
     color: skyblue;
     font-weight: bold;
 }
+
+.logout-button {
+    cursor: pointer;
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+}

@@ -5,6 +5,7 @@ import { useFollowUnfollowModal } from ".";
 import { createFollow, deleteFollow } from "../../store/follow";
 import { getUserFollows } from "../../store/profile_follows";
 
+import './FollowUnfollow.css'
 
 
 const FollowUnfollow = ({image}) => {
@@ -44,7 +45,7 @@ const FollowUnfollow = ({image}) => {
     if (followsId.includes(JSON.stringify(image?.user_id))) {
         sessionLinks = (
             <div>
-                <button onClick={handleClickUnfollow}>
+                 <button className="follow-button" onClick={handleClickUnfollow}>
                 Unfollow
                 </button>
             </div>
@@ -52,7 +53,7 @@ const FollowUnfollow = ({image}) => {
     } else {
         sessionLinks = (
             <div>
-                 <button onClick={handleClickFollow}>
+                 <button className="follow-button" onClick={handleClickFollow}>
                 Follow
                  </button>
             </div>
@@ -61,9 +62,9 @@ const FollowUnfollow = ({image}) => {
 
 
     return (
-        <div>
+        <div className="follow-unfollow-modal">
             {sessionLinks}
-            <button onClick={() => setShowModal(false)}>
+            <button className="follow-cancel-button" onClick={() => setShowModal(false)}>
                 Cancel
             </button>
         </div>
