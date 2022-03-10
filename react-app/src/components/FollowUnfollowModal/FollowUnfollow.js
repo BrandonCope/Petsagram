@@ -39,7 +39,7 @@ const FollowUnfollow = ({image}) => {
     }
 
     let sessionLinks
-    if (followsId.includes(JSON.stringify(image?.user_id))) {
+    if (followsId.includes(image?.user_id.toString())) {
         sessionLinks = (
             <div>
                  <button className="follow-button" onClick={handleClickUnfollow}>
