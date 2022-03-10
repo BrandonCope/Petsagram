@@ -24,7 +24,7 @@ const ProfilePage = () => {
     const user = useSelector((state) => state.session.user)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
-    console.log(followsId)
+    // console.log(followsId)
 
 
     useEffect(() => {
@@ -58,11 +58,11 @@ const ProfilePage = () => {
     }
 
     // console.log(followsId.includes(JSON.stringify(id)))
-    console.log(user?.id !== id)
+    // console.log(user?.id !== id)
 
 
     let sessionLinks
-    if(user?.id != id){
+    if(user?.id !== id){
         if (followsId.includes(id.toString())) {
             sessionLinks = (
                 <div>
