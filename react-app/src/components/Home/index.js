@@ -16,9 +16,9 @@ const HomePage = () => {
     const followsId = Object.keys(follows)
     // console.log(followsId)
 
-    useEffect(() => {
-        dispatch(getFollows_user(user?.id))
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getFollows_user(user?.id))
+    // }, [dispatch])
 
     let Feed;
 
