@@ -3,6 +3,8 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import FeedImageModal from "../FeedImageModal"
 import './PublicFeed.css'
+import CreateCommentForm from "../CommentForm"
+import FeedDisplayComments from "../FeedDisplayComments"
 
 const FollowFeed = () => {
 
@@ -36,6 +38,10 @@ const FollowFeed = () => {
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <FeedImageModal image={image}/>
+                    <FeedDisplayComments image={image}/>
+                    <div>
+                        <CreateCommentForm image={image}/>
+                    </div>
                 </div>
             ))}
         </div>
