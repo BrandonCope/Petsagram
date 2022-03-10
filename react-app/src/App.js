@@ -20,22 +20,34 @@ function App() {
   const user = useSelector(state => state.session.user)
   const [notLandingPage, setNotLandingPage] = useState(true)
   const location = useLocation()
-  // console.log(location)
+  const profile = useSelector((state) => state.profile)
+
 
   useEffect(() => {
     if (!user && (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/sign-up" )) setNotLandingPage(false)
     else setNotLandingPage(true)
   }, [user, location])
 
-  useEffect(() => {
-    (async () => {
-      await dispatch(authenticate());
-      await dispatch(getImages());
-      dispatch(getFollows_user(user?.id))
-      await dispatch(getLikes());
+  // useEffect(() => {
+  //   (async () => {
+  //     await dispatch(authenticate());
+  //     await dispatch(getImages());
+  //     await dispatch(getFollows_user(user?.id))
+  //     await dispatch(getLikes());
+  //     setLoaded(true);
+  //   })();
+  // }, [dispatch]);
+
+  useEffect(()=> {
+      dispatch(authenticate());
+      dispatch(getImages());
+      dispatch(getLikes());
       setLoaded(true);
-    })();
-  }, [dispatch]);
+  },[dispatch])
+
+  useEffect(()=> {
+    dispatch(getFollows_user(user?.id))
+  },[dispatch,user?.id])
 
   if (!loaded) {
     return null;
