@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {createImage} from '../../store/images'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
+import './CreateImage.css'
 
 function CreateImage({setShowModal}) {
     const dispatch = useDispatch();
@@ -48,10 +49,11 @@ function CreateImage({setShowModal}) {
     }
 
     return (
-        <div className="image-post-form">
-            <form onSubmit={handleSubmit} >
+        <div className="image-post-form-container">
+            <form className="post-form" onSubmit={handleSubmit} >
                 <h2>Post Your Image</h2>
                 <input
+                id="file-upload"
                 type='file'
                 accept="image/*"
                 name="image"
@@ -67,9 +69,9 @@ function CreateImage({setShowModal}) {
                 maxLength='255'
                 required
                 />
-                <button type='submit'>Submit</button>
+                <button className="post-button" type='submit'>Submit</button>
+                <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>
             </form>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
         </div>
     )
 }

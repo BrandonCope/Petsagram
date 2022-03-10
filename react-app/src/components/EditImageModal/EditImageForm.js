@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import {editImage} from '../../store/images'
 import { useDispatch} from 'react-redux'
 import { useEditModal } from '../EditDeleteModal'
+import './EditImage.css'
 
 function EditImageForm({image, setShowModal}) {
     const dispatch = useDispatch();;
@@ -28,8 +29,8 @@ function EditImageForm({image, setShowModal}) {
     }
 
     return (
-        <div className="image-post-form">
-            <form onSubmit={handleSubmit} >
+        <div className="image-edit-form-container">
+            <form className="image-edit-form" onSubmit={handleSubmit} >
                 <h2>Edit Your Summary</h2>
                 <textarea className="summary-textarea"
                 placeholder={"Description..."}
@@ -40,9 +41,9 @@ function EditImageForm({image, setShowModal}) {
                 maxLength='255'
                 required
                 />
-                <button type='submit'>Submit</button>
+                <button className="post-button" type='submit'>Submit</button>
+                <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>
             </form>
-            <button onClick={() => setShowModal(false)}>Cancel</button>
         </div>
     )
 }

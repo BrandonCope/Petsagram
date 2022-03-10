@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 import { getFollows_user } from "../../store/follow"
 import FollowFeed from "./FollowFeed"
 import PublicFeed from "./PublicFeed"
+import './PublicFeed.css'
 
 const HomePage = () => {
     const user = useSelector((state)=> state.session.user)
@@ -48,14 +49,14 @@ const HomePage = () => {
     return (
         <div className="body-div">
             <div>
-                <h1 className="home-h1">Home Page</h1>
+                <h1 className="home-h1"></h1>
             </div>
-            <div>
-            <button onClick={showPublic}>
+            <div className="feed-button-container">
+            <button className="feed-button" onClick={showPublic}>
                 Public Feed
             </button>
-            <button onClick={showFollow}>
-                HomeFeed
+            <button className="feed-button" onClick={showFollow}>
+                Following
             </button>
             </div>
             {Feed}

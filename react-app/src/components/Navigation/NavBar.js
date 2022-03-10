@@ -18,13 +18,8 @@ const NavBar = () => {
             <button className='home-button'><i className="fa-solid fa-house"></i></button>
           </li>
         </NavLink>
-        {/* </Image Modal user={user} */}
-        {/* </ProfileButton user = {user} */}
         <li>
           <CreateImageModal />
-        </li>
-        <li>
-          {/* <LogoutButton /> */}
         </li>
         <li>
           <ProfileButton user={user} />

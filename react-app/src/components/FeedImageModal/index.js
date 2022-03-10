@@ -24,7 +24,7 @@ function FeedImageModal({ image }) {
           className="followModalButton"
           onClick={() => setShowModal(true)}
         >
-          comment
+          <i class="fa-regular fa-message"></i>
         </button>
       </div>
       {showModal && (
