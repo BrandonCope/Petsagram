@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
-// import { Modal } from '../../context/Modal';
-// import SignUpForm from './SignUpForm';
+import React, { createContext, useContext, useState } from 'react';
+import { Modal } from '../../context/Modal';
+import EditDeleteComment from './EditDeleteComment';
 
-function CommentEditsModal() {
-  const [showModal, setShowModal] = useState(false);
+export const EditModalContext = createContext()
+export const useEditModal = () => useContext(EditModalContext)
+
+function EditDeleteCommentModal({comment}) {
+  const [showEditModal, setShowEditModal] = useState(false);
 
   return (
-    <>
-      <button className='followModalButton' onClick={() => setShowModal(true)}>...</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          {/* <Edit From /> */}
-          <button>Delete</button>
+    <EditModalContext.Provider
+      value={{
+        showEditModal,
+        setShowEditModal
+      }}
+      >
+      <button className='editDeleteImageModalButton' onClick={() => setShowEditModal(true)}>...</button>
+      {showEditModal && (
+        <Modal onClose={() => setShowEditModal(false)}>
+            <EditDeleteComment comment={comment} />
         </Modal>
       )}
-    </>
+    </EditModalContext.Provider>
   );
 }
 
-export default CommentEditsModal;
+export default EditDeleteCommentModal;
