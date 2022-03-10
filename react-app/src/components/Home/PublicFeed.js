@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { useSelector } from "react-redux"
-import { Link, NavLink } from "react-router-dom"
-// import ImageDetail from "../ImageDetailModal/ImageDetail"
+import { Link } from "react-router-dom"
 import FeedImageModal from "../FeedImageModal"
 import FollowUnfollowModal from "../FollowUnfollowModal"
 import './PublicFeed.css'
@@ -24,7 +23,7 @@ const PublicFeed = () => {
                     <FollowUnfollowModal image={image}/>
                     </div>
 
-                    <img className="feed-images" src={image.image}>
+                    <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <FeedImageModal image={image}/>
                 </div>

@@ -8,22 +8,11 @@ const addFollow = new_follow => ({ type: ADD, new_follow })
 
 const removeFollow = remove_follow => ({ type: REMOVE, remove_follow})
 
-// export const getFollows = () => async dispatch => {
-//     const response = await fetch('/api/follows/')
-//     if(response.ok) {
-//         const follows = await response.json();
-//         dispatch(loadFollows(follows))
-//         return follows;
-//     }
-//     return response;
-// }
-
 export const getFollows_user = (id) => async dispatch => {
     const response = await fetch(`/api/follows/${id}`)
     if(response.ok) {
         const follows = await response.json();
 
-        console.log(follows)
         dispatch(loadFollows(follows))
         return follows;
     }
@@ -84,16 +73,14 @@ const followsReducer = (state = initialState, action) => {
             return newState;
         case ADD:
             newState = {...state, followers: {...state.followers}, following: {...state.following}}
-            // newState.followers = {...newState.followers, [action.new_follow.followers.id]: action.new_follow.followers}
+          
             action.new_follow.followers.forEach(followers => newState.followers[followers.id] = followers)
             action.new_follow.following.forEach(following => newState.following[following.id] = following)
 
-            // newState.following = {...newState.following, [action.new_follow.following[0].id]: action.new_follow.following[0]}
-            // console.log(action.new_follow.following[0])
             return newState;
         case REMOVE:
             newState = {...state, followers: {...state.followers}}
-            
+
             action.remove_follow.following.forEach(following => followingList[following.id] = following)
             newState.following = followingList
             return newState
