@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { createContext, useContext, useState } from "react";
 import { Modal } from "../../context/Modal";
 import FeedImageDetail from "./FeedImageDetail";
 import LikeButton from "../LikeButton";
@@ -24,7 +23,7 @@ function FeedImageModal({ image }) {
           className="followModalButton"
           onClick={() => setShowModal(true)}
         >
-          <i class="fa-regular fa-message"></i>
+          <i className="fa-regular fa-message"></i>
         </button>
       </div>
       {showModal && (

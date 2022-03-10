@@ -22,8 +22,8 @@ function LikeCounterModal({ image }) {
       setLikeCounterString('');
       setLikeCounter(false);
     }
-  }, [likes, image, imageLikes, numLikes]);
-  console.log("LikeCounterString: ", likeCounterString);
+  }, [numLikes]);
+
 
   return (
     <div>

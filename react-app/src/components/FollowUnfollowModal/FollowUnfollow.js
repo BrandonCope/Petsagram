@@ -1,5 +1,3 @@
-import EditImageModal from "../EditImageModal"
-import { deleteImage } from "../../store/images"
 import { useDispatch, useSelector } from "react-redux";
 import { useFollowUnfollowModal } from ".";
 import { createFollow, deleteFollow } from "../../store/follow";
@@ -12,10 +10,9 @@ const FollowUnfollow = ({image}) => {
     const {setShowModal} = useFollowUnfollowModal()
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
-    const follow = useSelector((state) => state.follows)
+    // const follow = useSelector((state) => state.follows)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
-    console.log("=====================",follow)
 
     const handleClickFollow = async (e) => {
         e.preventDefault()

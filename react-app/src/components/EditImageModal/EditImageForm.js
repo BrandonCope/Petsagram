@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import {editImage} from '../../store/images'
 import { useDispatch} from 'react-redux'
 import { useEditModal } from '../EditDeleteModal'
@@ -13,7 +13,7 @@ function EditImageForm({image, setShowModal}) {
 
     const id = image.id;
     const handleSubmit = async e => {
-       try{
+     
            e.preventDefault();
 
             const edit_image = {
@@ -21,9 +21,7 @@ function EditImageForm({image, setShowModal}) {
             }
             dispatch(editImage(edit_image, id))
 
-       } catch(error) {
-           console.log(error)
-       }
+
        setShowModal(false)
        setShowEditModal(false)
     }

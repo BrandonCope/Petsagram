@@ -1,25 +1,17 @@
-import React,{useEffect, useState} from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { getFollows_user } from "../../store/follow"
+import React,{useState} from "react"
+// import { useDispatch, useSelector } from "react-redux"
 import FollowFeed from "./FollowFeed"
 import PublicFeed from "./PublicFeed"
 import './PublicFeed.css'
 
 const HomePage = () => {
-    const user = useSelector((state)=> state.session.user)
-    const images = useSelector((state)=> state.images)
-    const imagesArr = Object.values(images).reverse()
-    const dispatch = useDispatch()
+    // const user = useSelector((state)=> state.session.user)
+    // const images = useSelector((state)=> state.images)
+    // const imagesArr = Object.values(images).reverse()
+    // const dispatch = useDispatch()
 
     const [publicFeed,setFollowingFeed] = useState(false)
-    const follows = useSelector((state) => state.follows.following)
-    const followsId = Object.keys(follows)
-    // console.log(followsId)
-
-    // useEffect(() => {
-    //     dispatch(getFollows_user(user?.id))
-    // }, [dispatch])
+  
 
     let Feed;
 
@@ -49,7 +41,7 @@ const HomePage = () => {
     return (
         <div className="body-div">
             <div>
-                <h1 className="home-h1"></h1>
+                {/* <h1 className="home-h1"></h1> */}
             </div>
             <div className="feed-button-container">
             <button className="feed-button" onClick={showPublic}>

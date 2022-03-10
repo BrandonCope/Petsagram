@@ -39,7 +39,7 @@ export const deleteLike = (id) => async dispatch => {
         method: 'DELETE'
     });
     if(response.ok) {
-        console.log("response ok");
+     
         const message = await response.json();
         dispatch(removeLike(id));
         return message;

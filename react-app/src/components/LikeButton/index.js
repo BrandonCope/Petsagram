@@ -10,18 +10,18 @@ const LikeButton = ({ image }) => {
 
     let imageLikes;
     let userLike;
+    if (likes) {
+      imageLikes = likes.filter((like) => like.image_id === image.id);
+      userLike = imageLikes.find((imageLike) => imageLike.user_id === user.id);
+    }
     useEffect(() => {
 
-      if (likes) {
-        imageLikes = likes.filter((like) => like.image_id === image.id);
-        userLike = imageLikes.find((imageLike) => imageLike.user_id === user.id);
-      }
       if (userLike) {
         setHeart(true);
       } else {
         setHeart(false);
       }
-    }, [likes])
+    }, [userLike])
 
     const [heart, setHeart] = useState(false);
 

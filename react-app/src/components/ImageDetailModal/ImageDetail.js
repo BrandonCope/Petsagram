@@ -12,7 +12,7 @@ import FollowUnfollowModal from "../FollowUnfollowModal";
 const ImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
 
-    console.log(image);
+   
 
     const user = useSelector(state => state.session.user)
     let sessionLinks;
@@ -36,7 +36,7 @@ const ImageDetail = ({image}) => {
     return (
         <div className="image-detail-component-page">
             <div>
-                <img className="image-detail-image" src={image.image}/>
+                <img alt={image.summary} className="image-detail-image" src={image.image}/>
             </div>
             <div className="image-detail-content">
                 <div className="user-div">
