@@ -70,13 +70,13 @@ const initialState = {
 const followsReducer = (state = initialState, action) => {
     let newState;
     let followingList = {}
+    let followersList = {}
     switch(action.type) {
         case LOAD:
             newState = {};
-            let followersList = {}
 
-            action.follows.followers.forEach(follower => followersList[follower.id] = follower.username)
-            action.follows.following.forEach(following => followingList[following.id] = following.username)
+            action.follows.followers.forEach(follower => followersList[follower.id] = follower)
+            action.follows.following.forEach(following => followingList[following.id] = following)
 
             newState.followers = followersList
             newState.following = followingList
@@ -85,7 +85,8 @@ const followsReducer = (state = initialState, action) => {
         case ADD:
             newState = {...state, followers: {...state.followers}, following: {...state.following}}
             // newState.followers = {...newState.followers, [action.new_follow.followers.id]: action.new_follow.followers}
-            action.new_follow.following.forEach(following => newState.following[following.id] = following.username)
+            action.new_follow.followers.forEach(followers => newState.followers[followers.id] = followers)
+            action.new_follow.following.forEach(following => newState.following[following.id] = following)
 
             // newState.following = {...newState.following, [action.new_follow.following[0].id]: action.new_follow.following[0]}
             // console.log(action.new_follow.following[0])
@@ -93,7 +94,7 @@ const followsReducer = (state = initialState, action) => {
         case REMOVE:
             newState = {...state, followers: {...state.followers}}
             
-            action.remove_follow.following.forEach(following => followingList[following.id] = following.username)
+            action.remove_follow.following.forEach(following => followingList[following.id] = following)
             newState.following = followingList
             return newState
 

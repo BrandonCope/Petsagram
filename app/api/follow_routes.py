@@ -8,15 +8,14 @@ from app.forms import FollowForm
 
 follow_routes = Blueprint("follows", __name__)
 
-@follow_routes.route('/')
-def get_all_follows():
-    follows = User.query.all()
-    return jsonify(
-        [follow.to_dict_follow() for follow in follows]
-    )
+@follow_routes.route('/users/<int:id>')
+def get_all_follows(id):
+    user_follows = User.query.get(id)
+    return user_follows.to_dict_follow()
 
 @follow_routes.route('/<int:id>')
 def get_follows(id):
+    print("=========================",id)
     follows = User.query.get(id)
     return follows.to_dict_follow()
 
@@ -28,7 +27,6 @@ def post_follows():
 
         user = User.query.get(form.data['user_id'])
         target = User.query.get(form.data['target_id'])
-        print("user target ===================  = = = = == = = == =",target)
 
         user.followings.append(target)
 
