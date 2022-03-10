@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import {Link, useHistory} from 'react-router-dom'
 import LogoutButton from '../auth/LogoutButton';
+import './NavBar.css'
 
 // import LoginFormModal from "../LoginFormModal";
 // import SignUpFormModal from "../SignupFormModal";
@@ -46,10 +47,11 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
              <div className='loggedInUserNav'>
-                <li className="profileItem" ><Link to={`/profiles/${user.id}`}>{user.username}</Link></li>
+                <li className="profileItem">Hello, {user.username}!</li>
+                <li className="profileItem" ><Link to={`/profiles/${user.id}`}>My Profile</Link></li>
                 <li className="profileItem">{user.email}</li>
                 <li className="profileItem">
-                <LogoutButton />
+                <LogoutButton className='logout-button' />
                 </li>
         {/* <ProfileButton user={sessionUser} /> */}
            </div>

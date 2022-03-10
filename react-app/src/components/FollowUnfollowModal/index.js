@@ -16,7 +16,7 @@ function FollowUnfollowModal({image}) {
         setShowModal
       }}
       >
-      <button className='editDeleteImageModalButton' onClick={() => setShowModal(true)}>...</button>
+      <button className='feed-container-follow-modal-button' onClick={() => setShowModal(true)}>...</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <FollowUnfollow image={image} />

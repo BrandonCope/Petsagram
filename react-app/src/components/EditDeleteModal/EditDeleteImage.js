@@ -3,7 +3,7 @@ import { useEditModal } from ".";
 import { deleteImage } from "../../store/images"
 import { useDispatch } from "react-redux";
 import { useImageDetailModal } from "../ImageDetailModal";
-
+import './EditDelete.css'
 
 
 const EditDeleteImage = ({image}) => {
@@ -19,12 +19,12 @@ const EditDeleteImage = ({image}) => {
         setShowModal(false)
     }
     return (
-        <div>
+        <div className="image-edit-delete-container">
             <EditImageModal image={image} />
-            <button onClick={handleClick}>
+            <button className="image-delete-button" onClick={handleClick}>
                 Delete
             </button>
-            <button onClick={() => setShowEditModal(false)}>
+            <button className="image-cancel-button" onClick={() => setShowEditModal(false)}>
                 Cancel
             </button>
         </div>
