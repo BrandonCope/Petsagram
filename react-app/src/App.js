@@ -6,13 +6,11 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar.js';
 import ProfilePage from './components/Profile';
 import HomePage from './components/Home';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
-// import UsersList from './components/UsersList';
-// import User from './components/User';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
 import { getFollows_user } from './store/follow';
 import { getLikes } from './store/likes';
+import { getComments } from './store/comments'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,7 +18,6 @@ function App() {
   const user = useSelector(state => state.session.user)
   const [notLandingPage, setNotLandingPage] = useState(true)
   const location = useLocation()
-  const profile = useSelector((state) => state.profile)
 
 
   useEffect(() => {
@@ -28,26 +25,19 @@ function App() {
     else setNotLandingPage(true)
   }, [user, location])
 
-  // useEffect(() => {
-  //   (async () => {
-  //     await dispatch(authenticate());
-  //     await dispatch(getImages());
-  //     await dispatch(getFollows_user(user?.id))
-  //     await dispatch(getLikes());
-  //     setLoaded(true);
-  //   })();
-  // }, [dispatch]);
-
   useEffect(()=> {
       dispatch(authenticate());
       dispatch(getImages());
       dispatch(getLikes());
+      dispatch(getComments());
       setLoaded(true);
   },[dispatch])
 
   useEffect(()=> {
-    dispatch(getFollows_user(user?.id))
-  },[dispatch,user?.id])
+    if(user) {
+      dispatch(getFollows_user(user?.id))
+    }
+  },[dispatch,user])
 
   if (!loaded) {
     return null;
@@ -66,12 +56,6 @@ function App() {
         <Route path='/profiles/:id'>
           <ProfilePage />
           </Route>
-        {/* <Route path='/users' exact={true} >
-          <UsersList />
-        </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           {user ? <HomePage /> : <LoginForm />}
         </Route>

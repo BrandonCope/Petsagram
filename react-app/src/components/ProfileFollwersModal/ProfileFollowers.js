@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 const ProfileFollowers = ({ followers, closeModal }) => {
-    console.log(followers)
+
     return (
         <>
             {followers?.map(follower => (
-                <div>
+                <div key={follower.id}>
                     <Link to={`/profiles/${follower.id}`} onClick={()=> closeModal(false)}>
                         {follower.username}
                     </Link>
