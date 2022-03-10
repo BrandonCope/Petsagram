@@ -5,6 +5,7 @@ import FeedImageModal from "../FeedImageModal"
 import './PublicFeed.css'
 import CreateCommentForm from "../CommentForm"
 import FeedDisplayComments from "../FeedDisplayComments"
+import FollowUnfollowModal from "../FollowUnfollowModal"
 
 const FollowFeed = () => {
 
@@ -32,9 +33,12 @@ const FollowFeed = () => {
         <div>
             {filterImagesArr?.map((image) => (
                 <div key={image.id} className="feed-container">
-                    <Link to={`/profiles/${image.user_id}`}>
+                     <div className="feed-container-top">
+                    <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
                         {image.username}
                     </Link>
+                    <FollowUnfollowModal image={image}/>
+                    </div>
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <FeedImageModal image={image}/>

@@ -62,7 +62,7 @@ const ProfilePage = () => {
 
 
     let sessionLinks
-    if(user?.id !== +id){
+    if(user && user?.id !== +id){
         if (followsId.includes(id.toString())) {
             sessionLinks = (
                 <div>

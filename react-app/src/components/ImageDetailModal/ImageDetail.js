@@ -7,25 +7,34 @@ import LikeCounterModal from "../LikeCounter";
 import FollowUnfollowModal from "../FollowUnfollowModal";
 import DisplayComments from "../DisplayComments";
 import CreateCommentForm from "../CommentForm";
+import { useHistory } from "react-router-dom";
 
 const ImageDetail = ({image}) => {
     const {setShowModal} = useImageDetailModal()
+    const history = useHistory();
 
     const user = useSelector(state => state.session.user)
     let sessionLinks;
-    if (user?.id === image?.user_id) {
-      sessionLinks = (
-        <>
-        <EditDeleteModal image={image} />
-        </>
-      )
+    if(user) {
+      if (user?.id === image?.user_id) {
+        sessionLinks = (
+          <>
+          <EditDeleteModal image={image} />
+          </>
+        )
+      } else {
+        sessionLinks = (
+          <>
+          <FollowUnfollowModal image={image} />
+          </>
+        )
+
+      }
     } else {
       sessionLinks = (
-        <>
-        <FollowUnfollowModal image={image} />
-        </>
-      )
+        <button onClick={() => history.push('/')}>...</button>
 
+      )
     }
 
 

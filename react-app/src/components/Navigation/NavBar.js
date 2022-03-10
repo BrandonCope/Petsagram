@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import CreateImageModal from '../CreateImageModal';
 import ProfileButton from './ProfileButton';
 import './NavBar.css'
+import LoginModal from '../LoginModal';
+import SignupModal from '../SignupModal';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -28,8 +30,8 @@ const NavBar = () => {
   } else {
     sessionLinks = (
       <>
-        {/* <SignupFormModal /> */}
-        {/* <LoginFormModal /> */}
+        <LoginModal />
+        <SignupModal />
       </>
     )
 

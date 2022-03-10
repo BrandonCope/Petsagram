@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { createComment } from "../../store/comments"
 
 import "./CommentForm.css"
@@ -8,16 +9,23 @@ function CreateCommentForm({ image }) {
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
     const [content, setContent] = useState("")
+    const history = useHistory();
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const new_comment = {
-            image_id: image?.id,
-            user_id: user?.id,
-            content,
+        if(user) {
+
+            const new_comment = {
+                image_id: image?.id,
+                user_id: user?.id,
+                content,
+            }
+            dispatch(createComment(new_comment))
+            reset()
+        } else {
+            history.push('/')
         }
-        dispatch(createComment(new_comment))
-        reset()
     }
 
     const reset = () => {
