@@ -15,16 +15,13 @@ export const useImageDetailModal = () => useContext(ImageDetailModalContext)
 const ProfilePage = () => {
     const { id } = useParams()
     const images = useSelector((state)=> state.images)
+    // const username = useSelector((state) =>  )
     const imageArr = Object.values(images).reverse()
     const filterImageArry= imageArr.filter(({user_id}) => user_id === +id)
-    const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(getFollows_user(id))
-    })
 
     return (
       <div className='profile-div'>
-          <h2>User Profile</h2>
+          <h2>{filterImageArry[0].username}</h2>
             {filterImageArry.map((image) =>
                 <ImageDetailModal image={image} />
             )}

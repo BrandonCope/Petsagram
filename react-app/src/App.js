@@ -31,7 +31,7 @@ function App() {
     (async () => {
       await dispatch(authenticate());
       await dispatch(getImages());
-      // await dispatch(getFollows_user)
+      dispatch(getFollows_user(user?.id))
       await dispatch(getLikes());
       setLoaded(true);
     })();

@@ -12,7 +12,7 @@ const FollowUnfollow = ({image}) => {
     const user = useSelector(state => state.session.user)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
-    // console.log(followsId)
+    console.log(followsId)
 
     const handleClickFollow = (e) => {
         e.preventDefault()

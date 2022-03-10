@@ -4,6 +4,7 @@ import { useImageDetailModal } from "./index";
 import { useSelector } from 'react-redux';
 import LikeButton from "../LikeButton";
 import LikeCounterModal from "../LikeCounter";
+import FollowUnfollowModal from "../FollowUnfollowModal";
 
 
 
@@ -24,7 +25,7 @@ const ImageDetail = ({image}) => {
     } else {
       sessionLinks = (
         <>
-        <button>...</button>
+        <FollowUnfollowModal image={image} />
         </>
       )
 
