@@ -15,7 +15,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            errorMessages.append(f'{field.capitalize()} : {error}')
     return errorMessages
 
 @image_routes.route('/')
@@ -30,7 +30,7 @@ def get_images():
 def post_images():
     # print(request.files["image"])
     if "image" not in request.files:
-        return {"errors": ["Error: image required"]}, 400
+        return {"errors": ["Error: Image required"]}, 400
 
     image = request.files["image"]
 

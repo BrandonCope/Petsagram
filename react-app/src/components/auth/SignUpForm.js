@@ -14,16 +14,23 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
+
+    const confirm_password = repeatPassword
+    console.log(username)
+    console.log(confirm_password)
+    const data = await dispatch(signUp(username, email, password, confirm_password));
+    if (data) {
+      setErrors(data)
+      if (password !== confirm_password) {
+        setPassword("");
+        setRepeatPassword("")
       }
-    } else {
-      setErrors(['Password: Password and Confirm Password must match.'])
-      setPassword("");
-      setRepeatPassword("");
     }
+    //  else {
+    //   // setErrors(['Password: Password and Confirm Password must match.'])
+    //   // setPassword("");
+    //   // setRepeatPassword("");
+    // }
   };
 
   const updateUsername = (e) => {
@@ -48,66 +55,66 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-body'>
-    <div className='signup-form-container'>
-      <h1>Petsagram</h1>
-      <form className='signup-form'  onSubmit={onSignUp}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+      <div className='signup-form-container'>
+        <h1>Petsagram</h1>
+        <form className='signup-form' onSubmit={onSignUp}>
+          <div className='signup-form-errors'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <label></label>
+            <input
+              placeholder='Username'
+              className='login-input'
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label></label>
+            <input
+              placeholder='Email'
+              className='login-input'
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <label></label>
+            <input
+              placeholder='Password'
+              className='login-input'
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <label></label>
+            <input
+              placeholder='Confirm Password'
+              className='login-input'
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+            // required={true}
+            ></input>
+          </div>
+          <button className='login-form-submit' type='submit'>Sign Up</button>
+        </form>
+        <div className='login-redirect-container'>
+          <p>Have an account?</p>
+          <NavLink className='login-redirect' to="/">Login </NavLink>
         </div>
-        <div>
-          <label></label>
-          <input
-            placeholder='Username'
-            className='login-input'
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div>
-          <label></label>
-          <input
-            placeholder='Email'
-            className='login-input'
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-          ></input>
-        </div>
-        <div>
-          <label></label>
-          <input
-            placeholder='Password'
-            className='login-input'
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div>
-          <label></label>
-          <input
-            placeholder='Confirm Password'
-            className='login-input'
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button className='login-form-submit' type='submit'>Sign Up</button>
-      </form>
-      <div className='login-redirect-container'>
-        <p>Have an account?</p>
-        <NavLink className='login-redirect' to="/">Login </NavLink>
       </div>
-    </div>
 
     </div>
   );

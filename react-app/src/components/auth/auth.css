@@ -27,7 +27,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 130px;
+    height: 200px;
+    width: 183px;
     /* padding-bottom: 20px; */
 }
 
@@ -42,6 +43,12 @@ body {
     padding: 5px;
     color: white;
 
+}
+
+.login-form-errors{
+    position: relative;
+    right: 15px;
+    width: 300px;
 }
 
 .sign-up-redirect-container {
@@ -84,8 +91,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 240px;
+    height: 300px;
+    width: 183px;
     /* padding-bottom: 20px; */
+}
+
+.signup-form-errors{
+    position: relative;
+    right: 40px;
+    width: 300px;
 }
 
 .login-redirect-container {
