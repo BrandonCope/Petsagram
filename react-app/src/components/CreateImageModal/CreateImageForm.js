@@ -37,9 +37,8 @@ function CreateImage({setShowModal}) {
 
             const data = await dispatch(createImage(formData))
             if (data.errors) {
-                console.log("DATA: ", data);
-                let errorValues = Object.values(data.errors)
-                setErrors([errorValues])
+                let errorsValues = data.errors
+                setErrors(errorsValues)
                 console.log(errors);
             } else {
                 setShowModal(false)
@@ -62,7 +61,7 @@ function CreateImage({setShowModal}) {
                 accept="image/*"
                 name="image"
                 onChange={updateImage}
-                required
+                // required
                 />
                 {/* {(imageLoading)} */}
                 <textarea className="summary-textarea"
@@ -72,7 +71,7 @@ function CreateImage({setShowModal}) {
                 rows='7'
                 cols='45'
                 maxLength='255'
-                required
+                // required
                 />
                 <button className="post-button" type='submit'>Submit</button>
                 <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>

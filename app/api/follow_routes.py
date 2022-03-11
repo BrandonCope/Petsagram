@@ -15,7 +15,6 @@ def get_all_follows(id):
 
 @follow_routes.route('/<int:id>')
 def get_follows(id):
-    print("=========================",id)
     follows = User.query.get(id)
     return follows.to_dict_follow()
 
@@ -30,7 +29,7 @@ def post_follows():
 
         user.followings.append(target)
 
-        db.session.add(target)
+        # db.session.add(target)
         db.session.commit()
 
         return user.to_dict_follow()

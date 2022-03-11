@@ -26,15 +26,15 @@ export const createImage = (payload) => async dispatch => {
         method: 'POST',
         body: payload,
     });
+    console.log(response)
     if(response.ok) {
         const new_image = await response.json();
         dispatch(addImage(new_image));
         return new_image;
     } else if (response.status < 500) {
         const data = await response.json();
-        console.log(data)
-        if (data.errors) {
-            return data.errors;
+        if (data) {
+            return data;
         }
     }
     return response;
