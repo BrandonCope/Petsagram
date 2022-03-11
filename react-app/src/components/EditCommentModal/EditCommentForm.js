@@ -12,7 +12,7 @@ function EditCommentForm({ comment, setShowModal }) {
     const {setShowEditModal} = useEditModal();
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const edit_comment = {
             id: comment.id,
@@ -20,9 +20,13 @@ function EditCommentForm({ comment, setShowModal }) {
             user_id: user?.id,
             content,
         }
-        dispatch(editComment(edit_comment))
-        setShowModal(false)
-        setShowEditModal(false)
+        const data = await dispatch(editComment(edit_comment));
+        if (data.errors) {
+            setErrors(data.errors);
+        } else {
+            setShowModal(false)
+            setShowEditModal(false)
+        }
     }
 
     useEffect(() => {
@@ -47,7 +51,7 @@ function EditCommentForm({ comment, setShowModal }) {
                         rows="2"
                         column="15"
                         placeholder='Add a comment...'
-                        required
+                        // required
                         maxLength="255"
                     >
 

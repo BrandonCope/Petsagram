@@ -13,7 +13,7 @@ function CreateCommentForm({ image }) {
     const [errors, setErrors] = useState([]);
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if(user) {
 
@@ -22,8 +22,12 @@ function CreateCommentForm({ image }) {
                 user_id: user?.id,
                 content,
             }
-            dispatch(createComment(new_comment))
-            reset()
+            const data = await dispatch(createComment(new_comment));
+            if (data.errors) {
+                setErrors(data.errors);
+            } else {
+                reset()
+            }
         } else {
             history.push('/')
         }
@@ -55,7 +59,7 @@ function CreateCommentForm({ image }) {
                         rows="2"
                         column="15"
                         placeholder='Add a comment...'
-                        required
+                        // required
                         maxLength="255"
                     >
 

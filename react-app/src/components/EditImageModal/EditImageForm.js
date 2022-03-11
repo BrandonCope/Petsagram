@@ -15,16 +15,18 @@ function EditImageForm({image, setShowModal}) {
     const id = image.id;
     const handleSubmit = async e => {
 
-           e.preventDefault();
+        e.preventDefault();
 
-            const edit_image = {
-                summary: summary,
-            }
-            dispatch(editImage(edit_image, id))
-
-
-       setShowModal(false)
-       setShowEditModal(false)
+        const edit_image = {
+            summary: summary,
+        }
+        const data = await dispatch(editImage(edit_image, id));
+        if (data.errors) {
+            setErrors(data.errors)
+        } else {
+            setShowModal(false)
+            setShowEditModal(false)
+        }
     }
 
     useEffect(() => {
@@ -50,7 +52,7 @@ function EditImageForm({image, setShowModal}) {
                 rows='7'
                 cols='45'
                 maxLength='255'
-                required
+                // required
                 />
                 <button className="post-button" type='submit'>Submit</button>
                 <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>
