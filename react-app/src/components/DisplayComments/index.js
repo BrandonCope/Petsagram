@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import EditDeleteCommentModal from '../CommentEditsModal';
+import "./DisplayComments.css"
 
 
 function DisplayComments({image}) {
@@ -10,17 +11,19 @@ function DisplayComments({image}) {
 
     return (
         <div className=''>
-            <h3>Comments:</h3>
-        {imageComments?.map(comment => (
-            <div key={comment.id}>
-                <p>{comment.username}</p>
-                <p>{comment.content}</p>
-                {(user?.id === comment.user_id) && (
-                    <EditDeleteCommentModal comment={ comment } />
-                )}
-            </div>
-        ))}
-        {/* CommentForm */}
+
+            {imageComments?.map(comment => (
+                <div key={comment.id}>
+
+                    <div className="comment-user-container">
+                    <p className="comment-username">{comment.username}</p>
+                    {(user?.id === comment.user_id) && (
+                        <EditDeleteCommentModal comment={ comment } />
+                    )}
+                    </div>
+                    <p className="comment-content">{comment.content}</p>
+                </div>
+            ))}
         </div>
     )
 }

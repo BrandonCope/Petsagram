@@ -19,10 +19,12 @@ const FeedImageDetail = ({image}) => {
             <div className="image-detail-content">
                 <div className="user-div">
                 <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
-                        {image.username.slice(0,10)}
+                        {image.username.length > 10 ? `${image.username.slice(0,10)}...` : image.username}
                     </Link>
-                    <FollowUnfollowModal image={image}/>
-                    <button onClick={() => setShowModal(false)}>X</button>
+                    <div>
+                        <FollowUnfollowModal image={image}/>
+                        <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
+                    </div>
 
                 </div>
                 <div>
@@ -34,6 +36,7 @@ const FeedImageDetail = ({image}) => {
                     {/* <Comments /> */}
                     <LikeCounterModal image={ image } />
                     </div>
+                    <p>Comments:</p>
                     <div className='detail-comments'>
                         <DisplayComments image={image} />
                     </div>

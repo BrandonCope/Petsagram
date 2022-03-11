@@ -32,7 +32,7 @@ const ImageDetail = ({image}) => {
       }
     } else {
       sessionLinks = (
-        <button onClick={() => history.push('/')}>...</button>
+        <button className='feed-container-follow-modal-button' onClick={() => history.push('/')}>...</button>
 
       )
     }
@@ -47,9 +47,10 @@ const ImageDetail = ({image}) => {
             <div className="image-detail-content">
                 <div className="user-div">
                     <p> {image.username} </p>
-                    {sessionLinks}
-                    {/* <EditDeleteModal image={image} /> */}
-                    <button onClick={() => setShowModal(false)}>X</button>
+                    <div>
+                      {sessionLinks}
+                      <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
+                    </div>
 
                 </div>
                 <div>

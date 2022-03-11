@@ -36,6 +36,8 @@ function CreateCommentForm({ image }) {
     useEffect(() => {
         if (content.length >= 255) {
             setErrors(['Max length of 255 characters reached.'])
+        } else {
+            setErrors([])
         }
     }, [content])
 
