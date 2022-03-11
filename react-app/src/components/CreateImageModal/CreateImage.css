@@ -22,7 +22,7 @@
 .image-post-form-container {
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 330px;
     /* justify-content: space-between; */
 }
 
@@ -43,14 +43,26 @@
     cursor: pointer;
 }
 
-#file-upload-button {
+/* #file-upload-button {
     background-color: skyblue;
     border-radius: 3px;
     padding: 5px;
     color: white;
     cursor: pointer;
 }
-/*
+
 input[type="file"] {
-    display: none;
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
 } */
+
+::file-selector-button {
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}

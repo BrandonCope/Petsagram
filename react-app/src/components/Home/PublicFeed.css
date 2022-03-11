@@ -1,6 +1,6 @@
 .feed-container {
     width: 500px;
-    height: 700px;
+    /* height: 750px; */
     border: solid;
     border-radius: 5px;
     margin-top: 25px;
@@ -32,6 +32,11 @@
     font-size: large;
 }
 
+.feed-container-lower {
+    padding: 10px;
+
+}
+
 .feed-container-username {
     text-decoration: none;
     color: inherit;
@@ -45,6 +50,8 @@
     cursor: pointer;
 }
 
+
+
 .feed-button-container {
     display: flex;
     justify-content: space-between;
@@ -56,5 +63,10 @@
     background-color: skyblue;
     border-radius: 3px;
     padding: 5px;
+    color: white;
+}
+
+.feed-button:focus {
+    background-color: black;
     color: white;
 }
