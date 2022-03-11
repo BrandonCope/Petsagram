@@ -19,14 +19,12 @@ def get_images():
 def post_images():
     # print(request.files["image"])
     if "image" not in request.files:
-        print("Hit First Error")
-        return {"errors": "image required"}, 400
+        return {"errors": "Error: image required"}, 400
 
     image = request.files["image"]
 
     if not allowed_file(image.filename):
-        print("hit second error")
-        return {"errors": "file type not permitted"}, 400
+        return {"errors": "Error: file type not permitted"}, 400
 
     image.filename = get_unique_filename(image.filename)
 
@@ -34,7 +32,6 @@ def post_images():
 
 
     if "url" not in upload:
-        print("hit third error")
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
         # so we send back that error message
@@ -58,7 +55,7 @@ def post_images():
         db.session.commit()
         return new_image.to_dict()
     else:
-        return "Errors"
+        return {"errors" : [form.errors]}
 
 @image_routes.route('/<int:id>', methods=['PUT'])
 def edit_image(id):
