@@ -7,6 +7,7 @@ import ProfileButton from './ProfileButton';
 import './NavBar.css'
 import LoginModal from '../LoginModal';
 import SignupModal from '../SignupModal';
+import SearchBar from '../SearchBar';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
@@ -44,6 +45,7 @@ const NavBar = () => {
           <NavLink className="Nav-logo-container" to="/" >
             <h2>Petsagram</h2>
           </NavLink>
+        <SearchBar />
       <ul>
         <div className='nav-session-links'>
         {sessionLinks}

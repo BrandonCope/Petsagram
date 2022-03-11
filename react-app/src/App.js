@@ -6,11 +6,14 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar.js';
 import ProfilePage from './components/Profile';
 import HomePage from './components/Home';
+import SearchPage from './components/SearchBar/SearchPage';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
 import { getFollows_user } from './store/follow';
 import { getLikes } from './store/likes';
 import { getComments } from './store/comments'
+import { getUsers } from './store/users';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -21,23 +24,24 @@ function App() {
 
 
   useEffect(() => {
-    if (!user && (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/sign-up" )) setNotLandingPage(false)
+    if (!user && (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/sign-up")) setNotLandingPage(false)
     else setNotLandingPage(true)
   }, [user, location])
 
-  useEffect(()=> {
-      dispatch(authenticate());
-      dispatch(getImages());
-      dispatch(getLikes());
-      dispatch(getComments());
-      setLoaded(true);
-  },[dispatch])
+  useEffect(() => {
+    dispatch(authenticate());
+    dispatch(getImages());
+    dispatch(getLikes());
+    dispatch(getComments());
+    dispatch(getUsers())
+    setLoaded(true);
+  }, [dispatch])
 
-  useEffect(()=> {
-    if(user) {
+  useEffect(() => {
+    if (user) {
       dispatch(getFollows_user(user?.id))
     }
-  },[dispatch,user])
+  }, [dispatch, user])
 
   if (!loaded) {
     return null;
@@ -55,9 +59,12 @@ function App() {
         </Route>
         <Route path='/profiles/:id'>
           <ProfilePage />
-          </Route>
+        </Route>
         <Route path='/' exact={true} >
           {user ? <HomePage /> : <LoginForm />}
+        </Route>
+        <Route path='/search' >
+          <SearchPage />
         </Route>
         <Route>
           <h1>404: PAGE NOT FOUND!</h1>
