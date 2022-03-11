@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {editImage} from '../../store/images'
 import { useDispatch} from 'react-redux'
 import { useEditModal } from '../EditDeleteModal'
@@ -8,12 +8,13 @@ function EditImageForm({image, setShowModal}) {
     const dispatch = useDispatch();;
     const [summary, setSummary] = useState(image.summary);
     const { setShowEditModal } = useEditModal();
+    const [errors, setErrors] = useState([]);
 
 
 
     const id = image.id;
     const handleSubmit = async e => {
-     
+
            e.preventDefault();
 
             const edit_image = {
@@ -26,10 +27,22 @@ function EditImageForm({image, setShowModal}) {
        setShowEditModal(false)
     }
 
+    useEffect(() => {
+        if (summary.length >= 255) {
+            setErrors(['Max length of 255 characters reached.'])
+        }
+    }, [summary])
+
+
     return (
         <div className="image-edit-form-container">
             <form className="image-edit-form" onSubmit={handleSubmit} >
                 <h2>Edit Your Summary</h2>
+                <div>
+                    {errors && errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                 <textarea className="summary-textarea"
                 placeholder={"Description..."}
                 value={summary}
