@@ -15,7 +15,7 @@ function DisplayComments({image}) {
             <div key={comment.id}>
                 <p>{comment.username}</p>
                 <p>{comment.content}</p>
-                {(user.id === comment.user_id) && (
+                {(user?.id === comment.user_id) && (
                     <EditDeleteCommentModal comment={ comment } />
                 )}
             </div>
