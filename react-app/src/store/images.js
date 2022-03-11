@@ -32,9 +32,9 @@ export const createImage = (payload) => async dispatch => {
         return new_image;
     } else if (response.status < 500) {
         const data = await response.json();
-        console.log(data)
-        if (data.errors) {
-            return data.errors;
+        console.log("=====================",data)
+        if (data) {
+            return data;
         }
     }
     return response;

@@ -37,9 +37,8 @@ function CreateImage({setShowModal}) {
 
             const data = await dispatch(createImage(formData))
             if (data.errors) {
-                console.log("DATA: ", data);
-                let errorValues = Object.values(data.errors)
-                setErrors([errorValues])
+                let errorsValues = data.errors
+                setErrors(errorsValues)
                 console.log(errors);
             } else {
                 setShowModal(false)
