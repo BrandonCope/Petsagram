@@ -31,6 +31,19 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+  const handleClick = async (e) => {
+    e.preventDefault()
+    const demo = {
+      email: "demo@aa.io",
+      password: "password",
+    }
+    const data = await dispatch(login(demo.email, demo.password));
+    if (data) {
+      setErrors(data);
+    }
+
+  }
+
   return (
     <div className='signup-body'>
     <div className='login-form-container'>
@@ -64,6 +77,7 @@ const LoginForm = () => {
           />
         </div>
           <button className='login-form-submit' type='submit'>Login</button>
+          <button className='login-form-submit' type='button' onClick={handleClick}>Demo</button>
       </form>
       <div className='sign-up-redirect-container'>
         <p>Don't have an account?</p>

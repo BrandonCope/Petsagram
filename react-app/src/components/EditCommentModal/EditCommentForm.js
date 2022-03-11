@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editComment } from "../../store/comments"
 import { useEditModal } from '../CommentEditsModal'
@@ -10,6 +10,7 @@ function EditCommentForm({ comment, setShowModal }) {
     const dispatch = useDispatch()
     const [content, setContent] = useState(comment.content)
     const {setShowEditModal} = useEditModal();
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,9 +25,20 @@ function EditCommentForm({ comment, setShowModal }) {
         setShowEditModal(false)
     }
 
+    useEffect(() => {
+        if (content.length >= 255) {
+            setErrors(['Max length of 255 characters reached.'])
+        }
+    }, [content])
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <div>
+                    {errors && errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                 <div>
                     <textarea
                         className='comment-form-textarea'

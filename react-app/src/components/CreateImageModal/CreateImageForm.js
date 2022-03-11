@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {createImage} from '../../store/images'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
@@ -8,6 +8,7 @@ function CreateImage({setShowModal}) {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState('');
     const [summary, setSummary] = useState('');
+    const [errors, setErrors] = useState([]);
     // const [imageLoading, setImageLoading] = useState(false);
     const user = useSelector((state) => state.session.user?.id);
     const history = useHistory()
@@ -18,9 +19,15 @@ function CreateImage({setShowModal}) {
         setImageUrl(file);
     }
 
+    useEffect(() => {
+        if (summary.length >= 255) {
+            setErrors(['Max length of 255 characters reached.'])
+        }
+    }, [summary])
+
     const handleSubmit = async e => {
 
-           e.preventDefault();
+            e.preventDefault();
 
             const formData = new FormData()
             formData.append("image", imageUrl)
@@ -28,21 +35,34 @@ function CreateImage({setShowModal}) {
             formData.append('user_id', user)
 
 
-            dispatch(createImage(formData))
-            setShowModal(false)
-            history.push(`/profiles/${user}`)
+            const data = await dispatch(createImage(formData))
+            if (data.errors) {
+                console.log("DATA: ", data);
+                let errorValues = Object.values(data.errors)
+                setErrors([errorValues])
+                console.log(errors);
+            } else {
+                setShowModal(false)
+                history.push(`/profiles/${user}`)
+            }
     }
 
     return (
         <div className="image-post-form-container">
             <form className="post-form" onSubmit={handleSubmit} >
                 <h2>Post Your Image</h2>
+                <div>
+                    {errors && errors.map((error, ind) => (
+                        <div key={ind}>{error}</div>
+                    ))}
+                </div>
                 <input
                 id="file-upload"
                 type='file'
                 accept="image/*"
                 name="image"
                 onChange={updateImage}
+                required
                 />
                 {/* {(imageLoading)} */}
                 <textarea className="summary-textarea"

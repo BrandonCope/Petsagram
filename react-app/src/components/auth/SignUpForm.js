@@ -19,6 +19,10 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Password: Password and Confirm Password must match.'])
+      setPassword("");
+      setRepeatPassword("");
     }
   };
 
