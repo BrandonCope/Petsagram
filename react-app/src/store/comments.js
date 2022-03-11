@@ -34,15 +34,13 @@ export const createComment = (payload) => async dispatch => {
         dispatch(addComment(new_comment));
         return new_comment;
     } else if (response.status < 500) {
+        console.log(response);
         const data = await response.json();
-        console.log(data);
         if (data.errors) {
             return data;
         }
     }
-    // return response;
-    const data = await response.json();
-    console.log(data);
+    return response;
 }
 
 export const editComment = (payload) => async dispatch => {

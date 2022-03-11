@@ -52,6 +52,11 @@ export const editImage = (payload, id) => async dispatch => {
         const edit_image = await response.json();
         dispatch(updateImage(edit_image));
         return edit_image;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
     }
     return response;
 }

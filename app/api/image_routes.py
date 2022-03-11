@@ -66,7 +66,7 @@ def post_images():
         db.session.commit()
         return new_image.to_dict()
     else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 @image_routes.route('/<int:id>', methods=['PUT'])
 def edit_image(id):
@@ -81,7 +81,7 @@ def edit_image(id):
         print('......', edit_image.to_dict())
         return edit_image.to_dict()
     else:
-        return "Errors"
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 @image_routes.route('/<int:id>', methods=['DELETE'])
 def delete_image(id):

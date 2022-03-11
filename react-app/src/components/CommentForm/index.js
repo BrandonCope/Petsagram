@@ -23,7 +23,6 @@ function CreateCommentForm({ image }) {
                 content,
             }
             const data = await dispatch(createComment(new_comment));
-            console.log(data);
             if (data.errors) {
                 setErrors(data.errors);
             } else {

@@ -7,6 +7,16 @@ from app.forms import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 @comment_routes.route('/')
 def get_comments():
     comments = Comment.query.all()
@@ -29,7 +39,7 @@ def post_comments():
 
         return new_comment.to_dict()
     else:
-        return "Errors"
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 @comment_routes.route('/<int:id>', methods=['PUT'])
 @login_required
@@ -44,7 +54,7 @@ def edit_comment(id):
 
         return edit_comment.to_dict()
     else:
-        return "Errors"
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 @comment_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
@@ -53,4 +63,3 @@ def delete_comment(id):
     db.session.delete(delete_comment)
     db.session.commit()
     return { 'message': "Success" }
-
