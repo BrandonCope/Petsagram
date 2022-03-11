@@ -47,11 +47,11 @@ body {
 
 }
 
-.login-form-errors{
+/* .login-form-errors{
     position: relative;
     right: 15px;
     width: 300px;
-}
+} */
 
 .sign-up-redirect-container {
     display: flex;
@@ -98,11 +98,11 @@ body {
     /* padding-bottom: 20px; */
 }
 
-.signup-form-errors{
+/* .signup-form-errors{
     position: relative;
     right: 40px;
     width: 300px;
-}
+} */
 
 .login-redirect-container {
     display: flex;
@@ -128,4 +128,6 @@ body {
 
 .error-message {
     color: red;
+    font-size: 13px;
+    /* margin-left: 30px; */
 }

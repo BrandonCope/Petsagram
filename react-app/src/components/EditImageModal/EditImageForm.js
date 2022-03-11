@@ -32,6 +32,8 @@ function EditImageForm({image, setShowModal}) {
     useEffect(() => {
         if (summary.length >= 255) {
             setErrors(['Max length of 255 characters reached.'])
+        } else {
+            setErrors([])
         }
     }, [summary])
 

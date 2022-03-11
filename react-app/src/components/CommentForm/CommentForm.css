@@ -9,6 +9,10 @@
     background-color: transparent;
 }
 
+.comment-form-textarea:focus {
+    outline: none;
+}
+
 .comment-form-container {
     display: flex;
     flex-direction: row;

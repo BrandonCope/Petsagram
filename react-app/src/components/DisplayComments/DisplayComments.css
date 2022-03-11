@@ -1,0 +1,21 @@
+.comment-username {
+    font-weight: bold;
+    margin: 2px;
+    font-size: 13px;
+}
+
+.comment-user-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-content {
+    margin: 0 5px;
+    margin-bottom: 10px;
+}
+
+.editDeleteImageModalButton {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
