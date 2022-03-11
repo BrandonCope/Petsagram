@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -11,6 +11,15 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (username.length >= 40) {
+        setErrors(['Username: Max length of 40 characters reached.'])
+    }
+    if (email.length >= 255) {
+        setErrors(['Email: Max length of 255 characters reached.'])
+    }
+}, [username])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -60,7 +69,7 @@ const SignUpForm = () => {
         <form className='signup-form' onSubmit={onSignUp}>
           <div className='signup-form-errors'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div className='error-message' key={ind}>{error}</div>
             ))}
           </div>
           <div>
@@ -72,6 +81,7 @@ const SignUpForm = () => {
               name='username'
               onChange={updateUsername}
               value={username}
+              maxLength='40'
             ></input>
           </div>
           <div>
@@ -83,6 +93,7 @@ const SignUpForm = () => {
               name='email'
               onChange={updateEmail}
               value={email}
+              maxLength='255'
             ></input>
           </div>
           <div>
@@ -94,6 +105,7 @@ const SignUpForm = () => {
               name='password'
               onChange={updatePassword}
               value={password}
+              maxLength='255'
             ></input>
           </div>
           <div>
@@ -105,6 +117,7 @@ const SignUpForm = () => {
               name='repeat_password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
+              maxLength='255'
             // required={true}
             ></input>
           </div>

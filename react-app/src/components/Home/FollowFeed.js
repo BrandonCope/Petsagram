@@ -31,6 +31,7 @@ const FollowFeed = () => {
 
     return (
         <div>
+            <h2>Following:</h2>
             {filterImagesArr?.map((image) => (
                 <div key={image.id} className="feed-container">
                      <div className="feed-container-top">
@@ -41,8 +42,10 @@ const FollowFeed = () => {
                     </div>
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
+                    <div className="feed-container-lower">
                     <FeedImageModal image={image}/>
                     <FeedDisplayComments image={image}/>
+                    </div>
                     <div>
                         <CreateCommentForm image={image}/>
                     </div>

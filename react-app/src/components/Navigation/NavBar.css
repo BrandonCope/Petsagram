@@ -26,6 +26,7 @@
     align-items: center;
     text-decoration: none;
     color: inherit;
+    font-family: 'Oleo Script Swash Caps', cursive;
 }
 
 .home-button {
@@ -64,8 +65,8 @@
     background-color: white;
     border-radius: 10px;
     top: 60px;
-    height: 80px;
-    width: 80px;
+    height: 130px;
+    width: 100px;
     /* padding: 30px; */
     padding-bottom: 30px;
     padding-right: 15px;
@@ -75,8 +76,11 @@
     /* align-self: flex-end; */
     align-items: center;
     justify-content: flex-start;
-    /* list-style: none; */
+    list-style: none;
     position: fixed;
+    text-decoration: none;
+    color: inherit;
+    padding: 15px;
 }
 
 .loggedInUserNav {
@@ -88,4 +92,17 @@
     height: 30px;
 }
 
+.profileLink {
+    text-decoration: none;
+    color: inherit;
+}
 
+.profileLink:hover {
+    background-color: skyblue;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.profileItem {
+    padding: 5px;
+}

@@ -44,14 +44,14 @@ function CreateCommentForm({ image }) {
     }
 
     return (
-        <div>
+        <div className='comment-create-container'>
             <form onSubmit={handleSubmit}>
                 <div>
                     {errors && errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className='error-message' key={ind}>{error}</div>
                     ))}
                 </div>
-                <div>
+                <div className='comment-form-container'>
                     <textarea
                         className='comment-form-textarea'
                         value={content}
@@ -62,14 +62,13 @@ function CreateCommentForm({ image }) {
                         // required
                         maxLength="255"
                     >
-
                     </textarea>
+                    <button className='comment-post-button'>
+                        Post
+                    </button>
 
                 </div>
                 <div>
-                    <button>
-                        Post
-                    </button>
 
                 </div>
             </form>

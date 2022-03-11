@@ -1,0 +1,13 @@
+.latest-comment-container {
+    width: 100%;
+    border-bottom: 2px;
+
+}
+
+.latest-comment-username {
+font-weight: bold;
+}
+
+.latest-comment-content {
+    overflow-wrap: break-word;
+}

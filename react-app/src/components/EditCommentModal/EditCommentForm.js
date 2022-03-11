@@ -40,7 +40,7 @@ function EditCommentForm({ comment, setShowModal }) {
             <form onSubmit={handleSubmit}>
                 <div>
                     {errors && errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className='error-message' key={ind}>{error}</div>
                     ))}
                 </div>
                 <div>

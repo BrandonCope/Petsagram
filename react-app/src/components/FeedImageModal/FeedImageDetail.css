@@ -22,3 +22,24 @@
 .feed-image-icon-div {
     display: flex;
 }
+
+.followModalButton {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.fa-regular.fa-message {
+    font-size: large;
+    /* color: skyblue; */
+    /* font-weight: bold; */
+
+}
+
+.detail-summary {
+    overflow-wrap: break-word;
+}
+
+.detail-comments {
+    width: 100%;
+}

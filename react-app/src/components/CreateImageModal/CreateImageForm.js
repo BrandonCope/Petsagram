@@ -52,7 +52,7 @@ function CreateImage({setShowModal}) {
                 <h2>Post Your Image</h2>
                 <div>
                     {errors && errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className='error-message' key={ind}>{error}</div>
                     ))}
                 </div>
                 <input
