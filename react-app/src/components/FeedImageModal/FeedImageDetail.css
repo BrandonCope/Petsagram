@@ -7,17 +7,21 @@
 .image-detail-component-page {
     display: flex;
     width: 600px;
+    height: 50%;
 
 }
 
 .user-div {
     display: flex;
     height: 30px;
+    width: 180px;
+    justify-content: space-between;
 }
 
 .image-detail-content{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .feed-image-icon-div {
     display: flex;
@@ -38,8 +42,13 @@
 
 .detail-summary {
     overflow-wrap: break-word;
+    width: 190px;
 }
 
 .detail-comments {
     width: 100%;
+}
+
+.detail-comment-form {
+
 }
