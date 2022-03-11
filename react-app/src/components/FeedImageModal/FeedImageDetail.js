@@ -26,7 +26,7 @@ const FeedImageDetail = ({image}) => {
 
                 </div>
                 <div>
-                    <p>
+                    <p className='detail-summary'>
                         {image.summary}
                     </p>
                     <div>
@@ -34,7 +34,7 @@ const FeedImageDetail = ({image}) => {
                     {/* <Comments /> */}
                     <LikeCounterModal image={ image } />
                     </div>
-                    <div>
+                    <div className='detail-comments'>
                         <DisplayComments image={image} />
                     </div>
                     <div>

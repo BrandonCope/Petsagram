@@ -42,7 +42,7 @@ function EditImageForm({image, setShowModal}) {
                 <h2>Edit Your Summary</h2>
                 <div>
                     {errors && errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className='error-message' key={ind}>{error}</div>
                     ))}
                 </div>
                 <textarea className="summary-textarea"

@@ -14,10 +14,11 @@ const PublicFeed = () => {
     const imagesArr = Object.values(images).reverse()
     const filterImagesArr = imagesArr.filter((image) => image?.user_id !== +user?.id)
 
-    
+
 
     return (
         <div>
+            <h2 >Public:</h2>
             {filterImagesArr?.map((image) => (
                 <div className="feed-container" key={image.id}>
                     <div className="feed-container-top">
@@ -29,11 +30,11 @@ const PublicFeed = () => {
 
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
-                    <FeedImageModal image={image}/>
-                    <FeedDisplayComments image={image} />
-                    <div>
-                        <CreateCommentForm image={image} />
+                    <div className="feed-container-lower">
+                        <FeedImageModal image={image}/>
+                        <FeedDisplayComments image={image} />
                     </div>
+                            <CreateCommentForm image={image} />
                 </div>
             ))}
         </div>
