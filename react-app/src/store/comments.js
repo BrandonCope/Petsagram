@@ -33,8 +33,16 @@ export const createComment = (payload) => async dispatch => {
         const new_comment = await response.json();
         dispatch(addComment(new_comment));
         return new_comment;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        console.log(data);
+        if (data.errors) {
+            return data;
+        }
     }
-    return response;
+    // return response;
+    const data = await response.json();
+    console.log(data);
 }
 
 export const editComment = (payload) => async dispatch => {
@@ -49,6 +57,11 @@ export const editComment = (payload) => async dispatch => {
         const edit_comment = await response.json();
         dispatch(updateComment(edit_comment));
         return edit_comment;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data;
+        }
     }
     return response;
 }
