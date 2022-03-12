@@ -37,7 +37,7 @@ def seed_images():
     )
     image7 = Image(
         image = "https://www.gannett-cdn.com/presto/2021/09/21/PDTF/b4c8ca68-f024-43fa-a084-3ef29eada728-PetResorts_091621_04_MW.jpg?crop=2399,1350,x0,y86&width=2399&height=1350&format=pjpg&auto=webp",
-        summary = "Just here at Google, Its ya boy 😂",
+        summary = "😂",
         user_id = 3 
     )
     image8 = Image(
