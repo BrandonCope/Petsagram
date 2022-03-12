@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useLocation, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({loginForm, setLoginForm}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -11,6 +11,8 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     if (username.length >= 40) {
@@ -62,8 +64,14 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+  const switchForm = () => {
+    setLoginForm(true);
+    if (location.pathname !== "/") {
+      history.push('/');
+    }
+  }
+
   return (
-    <div className='signup-body'>
       <div className='signup-form-container'>
         <h1 className="app-title">Petsagram</h1>
         <form className='signup-form' onSubmit={onSignUp}>
@@ -125,11 +133,9 @@ const SignUpForm = () => {
         </form>
         <div className='login-redirect-container'>
           <p>Have an account?</p>
-          <NavLink className='login-redirect' to="/">Login </NavLink>
+          <div className='switchFormButton' onClick={switchForm}>Login </div>
         </div>
       </div>
-
-    </div>
   );
 };
 
