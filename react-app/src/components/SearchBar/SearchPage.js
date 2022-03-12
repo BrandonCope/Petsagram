@@ -27,7 +27,7 @@ const SearchPage = () => {
     return (
         <div className='search-page-container'>
             {searchArr?.map(({ username, id }) => (
-                <Link to={`profiles/${id}`} key={id}>
+                <Link className='searchLink' to={`profiles/${id}`} key={id}>
                     <p>
                         {username}
                     </p>

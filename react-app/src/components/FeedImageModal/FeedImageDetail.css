@@ -19,11 +19,6 @@
     width: 100%;
 }
 
-.image-detail-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 .feed-image-icon-div {
     display: flex;
 }
@@ -38,18 +33,5 @@
     font-size: large;
     /* color: skyblue; */
     /* font-weight: bold; */
-
-}
-
-.detail-summary {
-    overflow-wrap: break-word;
-    width: 190px;
-}
-
-.detail-comments {
-    width: 100%;
-}
-
-.detail-comment-form {
 
 }

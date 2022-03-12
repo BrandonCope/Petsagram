@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {createLike, deleteLike} from '../../store/likes'
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import './LikeButton.css'
 const LikeButton = ({ image }) => {
     const user = useSelector((state) => state.session.user);
     const stateLikes = useSelector((state) => state.likes);

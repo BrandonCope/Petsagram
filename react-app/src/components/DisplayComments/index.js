@@ -16,7 +16,7 @@ function DisplayComments({image}) {
                 <div key={comment.id}>
 
                     <div className="comment-user-container">
-                    <p className="comment-username">{comment.username}</p>
+                    <p className="comment-username">{comment.username.length > 10 ? `${comment.username.slice(0,10)}...` : comment.username}</p>
                     {(user?.id === comment.user_id) && (
                         <EditDeleteCommentModal comment={ comment } />
                     )}

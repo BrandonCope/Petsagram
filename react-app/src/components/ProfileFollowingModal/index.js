@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import { useSelector } from "react-redux";
 import ProfileFollowing from "./ProfileFollowing";
+import './ProfileFollow.css'
 
 const ProfileFollowingModal = () => {
     const [showModal, setShowModal] = useState(false);
