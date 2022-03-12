@@ -4,7 +4,7 @@ import LoginForm from '../auth/LoginForm';
 // import CreateImage from './CreateImageForm';
 // import './CreateImage.css'
 
-function LoginModal() {
+function LoginModal({loginForm, setLoginForm}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function LoginModal() {
       <button className='login-form-submit' onClick={() => setShowModal(true)}>Login</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <LoginForm loginForm= {loginForm} setLoginForm={setLoginForm} />
         </Modal>
 
       )}

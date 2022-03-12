@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ProfilePage from './components/Profile';
 import HomePage from './components/Home';
 import SearchPage from './components/SearchBar/SearchPage';
+import LandingPage from './components/LandingPage';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
 import { getFollows_user } from './store/follow';
@@ -21,7 +22,8 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const [notLandingPage, setNotLandingPage] = useState(true)
-  const location = useLocation()
+  const location = useLocation();
+  const [loginForm, setLoginForm] = useState(true);
 
 
   useEffect(() => {
@@ -50,7 +52,7 @@ function App() {
 
   return (
     <>
-      {notLandingPage && (<NavBar />)}
+      {notLandingPage && (<NavBar loginForm= {loginForm} setLoginForm={setLoginForm} />)}
       {notLandingPage && (<Footer />)}
       <Switch>
         <Route path='/login' exact={true}>
@@ -63,7 +65,7 @@ function App() {
           <ProfilePage />
         </Route>
         <Route path='/' exact={true} >
-          {user ? <HomePage /> : <LoginForm />}
+          {user ? <HomePage /> : <LandingPage loginForm= {loginForm} setLoginForm={setLoginForm} />}
         </Route>
         <Route path='/search' >
           <SearchPage />

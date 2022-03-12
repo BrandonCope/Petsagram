@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, useLocation, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './auth.css'
 
-const LoginForm = () => {
+const LoginForm = ({loginForm, setLoginForm}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -44,8 +46,14 @@ const LoginForm = () => {
 
   }
 
+  const switchForm = () => {
+    setLoginForm(false);
+    if (location.pathname !== "/") {
+      history.push('/');
+    }
+  }
+
   return (
-    <div className='signup-body'>
     <div className='login-form-container'>
       <h1 className="app-title">Petsagram</h1>
       <form className='login-form' onSubmit={onLogin}>
@@ -81,10 +89,8 @@ const LoginForm = () => {
       </form>
       <div className='sign-up-redirect-container'>
         <p>Don't have an account?</p>
-        <NavLink className='sign-up-redirect' to="/sign-up">Sign Up</NavLink>
+        <div className='switchFormButton' onClick={switchForm}>Sign Up</div>
       </div>
-    </div>
-
     </div>
   );
 };
