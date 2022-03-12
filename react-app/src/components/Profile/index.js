@@ -26,9 +26,15 @@ const ProfilePage = () => {
     const followsId = Object.keys(follows)
     // console.log(followsId)
 
+    const users = useSelector((state) => state.users)
+    const usersArr = Object.values(users)
+
+    const profileUser = usersArr.filter(user => user.id === +id)
+    console.log(profileUser)
 
     useEffect(() => {
         dispatch(getUserFollows(id))
+        window.scrollTo(0, 0)
     }, [dispatch, id])
 
 
@@ -62,7 +68,7 @@ const ProfilePage = () => {
 
 
     let sessionLinks
-    if(user && user?.id !== +id){
+    if (user && user?.id !== +id) {
         if (followsId.includes(id.toString())) {
             sessionLinks = (
                 <div>
@@ -87,17 +93,17 @@ const ProfilePage = () => {
     return (
         <div className='profile-div'>
             <div className='profile-top-container'>
-                <h2>{filterImageArry[0]?.username.length > 10 ? `${filterImageArry[0]?.username.slice(0,10)}` : filterImageArry[0]?.username }</h2>
+                <h2>{profileUser[0]?.username.length > 10 ? `${profileUser[0]?.username.slice(0, 10)}` : profileUser[0]?.username}</h2>
                 {sessionLinks}
                 <div className='following-buttons'>
-                <ProfileFollowersModal />
-                <ProfileFollowingModal />
+                    <ProfileFollowersModal />
+                    <ProfileFollowingModal />
                 </div>
             </div>
             <div className='profile-image-matrix'>
-            {filterImageArry.map((image) =>
-                <ImageDetailModal key={image.id} image={image} />
-            )}
+                {filterImageArry.map((image) =>
+                    <ImageDetailModal key={image.id} image={image} />
+                )}
 
             </div>
         </div>
