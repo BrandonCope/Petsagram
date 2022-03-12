@@ -45,7 +45,7 @@ const NavBar = () => {
           <NavLink className="Nav-logo-container" to="/" >
             <h2>Petsagram</h2>
           </NavLink>
-        <SearchBar />
+        <SearchBar className='search-bar' />
       <ul>
         <div className='nav-session-links'>
         {sessionLinks}
