@@ -1,6 +1,6 @@
 import FollowUnfollowModal from '../FollowUnfollowModal';
 import './FeedImageDetail.css'
-import { useImageDetailModal } from "./index";
+import { useFeedImageDetailModal } from "./index";
 import LikeButton from '../LikeButton';
 import LikeCounterModal from '../LikeCounter';
 import { Link } from "react-router-dom"
@@ -9,7 +9,7 @@ import DisplayComments from '../DisplayComments';
 
 
 const FeedImageDetail = ({image}) => {
-    const {setShowModal} = useImageDetailModal()
+    const {setShowModal} = useFeedImageDetailModal()
 
     return (
         <div className="image-detail-component-page">
@@ -17,7 +17,7 @@ const FeedImageDetail = ({image}) => {
                 <img alt='pet' className="image-detail-image" src={image.image}/>
             </div>
             <div className="image-detail-content">
-                <div className='hello-there'>
+                <div className='image-detail-content-top'>
                     <div className="user-div">
                         <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
                                 {image.username.length > 10 ? `${image.username.slice(0,10)}...` : image.username}
@@ -28,21 +28,20 @@ const FeedImageDetail = ({image}) => {
                         </div>
 
                     </div>
+                </div>
                     <div className='detail-summary-comments'>
                         <p className='detail-summary'>
                             {image.summary}
                         </p>
                         <div>
                             <LikeButton image={ image } />
-                        {/* <Comments /> */}
                         <LikeCounterModal image={ image } />
                         </div>
-                        <p>Comments:</p>
                         <div className='detail-comments'>
+                        <p>Comments:</p>
                             <DisplayComments image={image} />
                         </div>
                     </div>
-                </div>
                     <div className='detail-comment-form'>
                         <CreateCommentForm image={image} />
                     </div>

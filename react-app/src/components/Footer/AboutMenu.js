@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import LogoutButton from '../auth/LogoutButton';
+import { useSelector } from "react-redux";
 import './Footer.css'
 
 function AboutMenu({ user }) {
     const [showMenu, setShowMenu] = useState(false);
+    const users = useSelector((state) => Object.values(state.users).slice(3, 7))
 
 
     const openMenu = () => {
@@ -34,7 +36,9 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    Brandon Copeland
+                                    <Link to={`/profiles/${users[2].id}`}>
+                                        Brandon Copeland
+                                    </Link>
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/BrandonCope" target="_blank">
@@ -53,7 +57,9 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    Vu Co
+                                    <Link to={`/profiles/${users[3].id}`}>
+                                        Vu Co
+                                    </Link>
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/vth-co" target="_blank">
@@ -72,7 +78,9 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    Vern Chao
+                                    <Link to={`/profiles/${users[0].id}`}>
+                                        Vern Chao
+                                    </Link>
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/vernfongchao" target="_blank">
@@ -91,7 +99,9 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    David Alliger
+                                    <Link to={`/profiles/${users[1].id}`}>
+                                        David Alliger
+                                    </Link>
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/davidalliger" target="_blank">

@@ -4,14 +4,14 @@ import FeedImageDetail from "./FeedImageDetail";
 import LikeButton from "../LikeButton";
 import LikeCounterModal from "../LikeCounter";
 
-export const ImageDetailModalContext = createContext();
-export const useImageDetailModal = () => useContext(ImageDetailModalContext);
+export const FeedImageDetailModalContext = createContext();
+export const useFeedImageDetailModal = () => useContext(FeedImageDetailModalContext);
 
 function FeedImageModal({ image }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <ImageDetailModalContext.Provider
+    <FeedImageDetailModalContext.Provider
       value={{
         showModal,
         setShowModal,
@@ -32,7 +32,7 @@ function FeedImageModal({ image }) {
         </Modal>
       )}
       <LikeCounterModal image={ image } />
-    </ImageDetailModalContext.Provider>
+    </FeedImageDetailModalContext.Provider>
   );
 }
 

@@ -11,12 +11,18 @@
 
 }
 
+/* .image-detail-content-top {
+    height: 363px;
+} */
+
 .user-div {
     display: flex;
     height: 30px;
     width: 180px;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
+    /* margine */
 }
 
 .feed-image-icon-div {

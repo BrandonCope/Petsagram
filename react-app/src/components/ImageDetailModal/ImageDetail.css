@@ -10,9 +10,9 @@
 }
 
 .user-div {
-    display: flex;
+    /* display: flex;
     height: 30px;
-    width: 100%;
+    width: 100%; */
 }
 
 .image-detail-cancel-button {
@@ -28,31 +28,44 @@
     max-width: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
 }
 
 .user-pictures {
     width: 300px;
     height: 300px;
 }
+.detail-summary-comments{
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    max-height: 315px;
+}
+
+.detail-summary {
+    /* max-height: 100px; */
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* width: 190px;
+    min-height: 10px; */
+}
 
 .detail-comments {
     overflow-y: auto;
     overflow-wrap: break-word;
-    height: 100px;
-    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    /* min-height: 120px; */
+    /* max-height: 33%; */
+    /* height: 150px; */
+    /* max-height: min(60% 170px); */
+    /* width: 100%; */
 }
 
-.detail-summary {
-    max-height: 80px;
-    overflow-y: auto;
-    overflow-wrap: break-word;
-    padding-left: 10px;
-    overflow-wrap: break-word;
-    width: 190px;
-    min-height: 10px;
-}
 
-.hello-there {
-    max-height: 370px;
+
+.detail-comment-form{
+    margin-top: auto;
 }

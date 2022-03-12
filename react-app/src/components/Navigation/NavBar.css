@@ -67,7 +67,7 @@
     background-color: white;
     border-radius: 10px;
     top: 60px;
-    height: 130px;
+    min-height: 60px;
     width: 100px;
     /* padding: 30px; */
     padding-bottom: 30px;
@@ -91,7 +91,7 @@
     justify-content: space-between;
     border-radius: 10px;
     font-size: medium;
-    height: 30px;
+    /* height: 30px; */
 }
 
 .profileLink {
