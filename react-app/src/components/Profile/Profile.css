@@ -1,8 +1,9 @@
 .profile-div {
-    padding-top: 50px;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .profile-top-container {
@@ -11,6 +12,7 @@
     /* justify-content: space-between; */
     max-width: 400px;
     min-width: 200px;
+    margin-bottom: 15px;
 }
 
 .following-buttons {
