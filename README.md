@@ -4,6 +4,30 @@ Petsagram is a clone of Instagram but made for sharing and interacting with peop
 
 Share your pets now on [Petsagram](https://petsagram-app.herokuapp.com/)!
 
+## [Feature List](https://github.com/BrandonCope/insta_clone/wiki/MVP-Feature-List)
+
+List of features needed for the Minimum Viable Product (MVP) and its CRUD features
+
+## [User Stories](https://github.com/BrandonCope/insta_clone/wiki/User-Stories)
+
+List of user stories for each MVP
+
+## [Database Schema](https://github.com/BrandonCope/insta_clone/wiki/Database-Schema)
+
+Schema of how our PostgreSQL database will be set up
+
+## [API Documentation](https://github.com/BrandonCope/insta_clone/wiki/API-Documentation)
+
+API routes that will be used by our backend server
+
+## [Frontend Routes](https://github.com/BrandonCope/insta_clone/wiki/Frontend-Routes)
+
+Frontend Routes that the client can access while interacting with Petsagram app
+
+## [Redux State Shape](https://github.com/BrandonCope/insta_clone/wiki/Redux-State-Shape)
+
+Petsagrams's redux state shape for our react frontend
+
 ## Screenshots
 
 Welcome:
