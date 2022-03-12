@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navigation/NavBar.js';
+import Footer from './components/Footer';
 import ProfilePage from './components/Profile';
 import HomePage from './components/Home';
 import SearchPage from './components/SearchBar/SearchPage';
@@ -50,6 +51,7 @@ function App() {
   return (
     <>
       {notLandingPage && (<NavBar />)}
+      {notLandingPage && (<Footer />)}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

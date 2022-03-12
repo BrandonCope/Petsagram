@@ -1,0 +1,79 @@
+.footer-body-div {
+    height: 40px;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+    /* background-color: skyblue; */
+    /* color: white; */
+}
+
+.about-menu-label-div {
+    margin-right: 100px;
+}
+
+.fa-brands.fa-github {
+    font-size: large;
+}
+
+.fa-brands.fa-linkedin {
+    font-size: large;
+}
+
+.about-menu-open {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    /* color: white; */
+    font-size: 14px;
+}
+.team-member-li {
+    padding: 0 10px;
+}
+.team-member {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 8px 0;
+}
+
+.team-member-icons {
+    display: flex;
+}
+
+.team-member-github,
+.team-member-linkedin {
+    margin: 0 5px;
+    color: black;
+}
+
+.team-member-github:hover,
+.team-member-linkedin:hover {
+    cursor: pointer;
+    color: skyblue;
+}
+
+.about-menu-container{
+    border: black solid;
+    background-color: white;
+    border-radius: 10px;
+    bottom: 30px;
+    height: 150px;
+    width: 250px;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    position: fixed;
+    text-decoration: none;
+    color: inherit;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
