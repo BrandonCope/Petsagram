@@ -65,7 +65,7 @@ const SignUpForm = () => {
   return (
     <div className='signup-body'>
       <div className='signup-form-container'>
-        <h1>Petsagram</h1>
+        <h1 className="app-title">Petsagram</h1>
         <form className='signup-form' onSubmit={onSignUp}>
           <div className='signup-form-errors'>
             {errors.map((error, ind) => (

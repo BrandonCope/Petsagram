@@ -126,6 +126,10 @@ body {
     color: white;
 }
 
+.app-title {
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+
 .error-message {
     color: red;
     font-size: 13px;

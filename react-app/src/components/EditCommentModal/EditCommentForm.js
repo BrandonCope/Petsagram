@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editComment } from "../../store/comments"
 import { useEditModal } from '../CommentEditsModal'
-
-// import "./CommentForm.css"
+import './EditComments.css'
 
 function EditCommentForm({ comment, setShowModal }) {
     const user = useSelector((state) => state.session.user)
@@ -38,34 +37,25 @@ function EditCommentForm({ comment, setShowModal }) {
     }, [content])
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="comment-edit-form-container">
+            <form className="comment-edit-form" onSubmit={handleSubmit}>
+                <h2>Edit Your Comment</h2>
                 <div>
                     {errors && errors.map((error, ind) => (
                         <div className='error-message' key={ind}>{error}</div>
                     ))}
                 </div>
-                <div>
-                    <textarea
-                        className='comment-form-textarea'
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        rows="2"
-                        column="15"
-                        placeholder='Add a comment...'
-                        // required
-                        maxLength="255"
-                    >
-
-                    </textarea>
-
-                </div>
-                <div>
-                    <button>
-                        Post
-                    </button>
-
-                </div>
+                <textarea
+                    className='edit-comment-textarea'
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    placeholder='Add a comment...'
+                    rows='7'
+                    cols='45'
+                    maxLength='255'
+                />
+                <button className="post-button" type='submit'>Submit</button>
+                <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>
             </form>
         </div>
     )
