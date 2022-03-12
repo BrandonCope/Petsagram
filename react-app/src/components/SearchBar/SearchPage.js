@@ -6,7 +6,7 @@ import "./SearchBar.css"
 
 
 const SearchPage = () => {
-
+    const user = useSelector((state)=> state.session.user)
     const users = useSelector((state) => state.users)
     const location = useLocation()
 
@@ -14,8 +14,8 @@ const SearchPage = () => {
 
     console.log(usersArr)
 
-    const searchArr = usersArr.filter(({ username }) => {
-        return username.toLowerCase().includes(location.state.detail.toLowerCase())
+    const searchArr = usersArr.filter(({ username , id }) => {
+        return username.toLowerCase().includes(location.state.detail.toLowerCase()) && id !== user?.id
     })
 
     console.log(searchArr)

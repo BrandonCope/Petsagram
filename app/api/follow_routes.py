@@ -28,8 +28,6 @@ def post_follows():
         target = User.query.get(form.data['target_id'])
 
         user.followings.append(target)
-
-        # db.session.add(target)
         db.session.commit()
 
         return user.to_dict_follow()

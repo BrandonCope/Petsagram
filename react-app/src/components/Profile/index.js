@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import ImageDetailModal from '../ImageDetailModal'
 import './Profile.css'
 
@@ -17,6 +17,7 @@ export const useImageDetailModal = () => useContext(ImageDetailModalContext)
 
 const ProfilePage = () => {
     const { id } = useParams()
+    const history = useHistory()
     const images = useSelector((state) => state.images)
     const imageArr = Object.values(images).reverse()
     const filterImageArry = imageArr.filter(({ user_id }) => user_id === +id)
@@ -24,18 +25,58 @@ const ProfilePage = () => {
     const user = useSelector((state) => state.session.user)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
+    const [isLoaded, setIsLoaded] = useState()
+
     // console.log(followsId)
 
     const users = useSelector((state) => state.users)
     const usersArr = Object.values(users)
 
-    const profileUser = usersArr.filter(user => user.id === +id)
+    // const set = new Set()
+
+    let profileUser = usersArr.filter(user => user.id === +id)
     console.log(profileUser)
 
+    if (user?.id === +id) {
+        profileUser = [user]
+    }
+
+
+    console.log(isLoaded)
+
     useEffect(() => {
-        dispatch(getUserFollows(id))
         window.scrollTo(0, 0)
-    }, [dispatch, id])
+        if (profileUser.length) {
+            dispatch(getUserFollows(id))
+            setIsLoaded(true)
+        }
+        // usersArr?.forEach(({ id }) => (
+        //     set.add(id.toString())
+        // ))
+        // console.log(set)
+
+        // const timer = setTimeout(() => {
+        //     if (!set.has(id.toString())) {
+        //         history.push('/404')
+        //     }
+        // }, 1000)
+
+        // return () => clearTimeout(timer)
+    }, [dispatch, id,profileUser])
+
+
+    useEffect(() => {
+        if(isLoaded === true){
+            if(profileUser.length < 1){
+                history.push('/404')
+            }
+        }
+    }, [isLoaded])
+
+    // useEffect(() => {
+    //     dispatch(getUserFollows(id))
+    //     window.scrollTo(0, 0)
+    // }, [dispatch, id])
 
 
 
@@ -90,10 +131,10 @@ const ProfilePage = () => {
 
 
 
-    return (
+    return (isLoaded &&
         <div className='profile-div'>
             <div className='profile-top-container'>
-                <h2>{profileUser[0]?.username.length > 10 ? `${profileUser[0]?.username.slice(0, 10)}` : profileUser[0]?.username}</h2>
+                <h2>{profileUser[0]?.username.length > 20 ? `${profileUser[0]?.username.slice(0, 20)}...` : profileUser[0]?.username}</h2>
                 {sessionLinks}
                 <div className='following-buttons'>
                     <ProfileFollowersModal />

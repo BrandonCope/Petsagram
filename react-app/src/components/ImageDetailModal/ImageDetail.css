@@ -10,9 +10,9 @@
 }
 
 .user-div {
-    display: flex;
+    /* display: flex;
     height: 30px;
-    width: 100%;
+    width: 100%; */
 }
 
 .image-detail-cancel-button {

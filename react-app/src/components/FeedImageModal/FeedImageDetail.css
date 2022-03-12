@@ -21,6 +21,8 @@
     width: 180px;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
+    /* margine */
 }
 
 .feed-image-icon-div {

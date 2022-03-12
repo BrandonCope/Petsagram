@@ -42,5 +42,5 @@ def seed_likes():
 
 
 def undo_likes():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE likes RESTART IDENTITY CASCADE;')
     db.session.commit()

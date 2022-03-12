@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 
@@ -38,21 +38,21 @@ function ProfileButton({ user }) {
   return (
     <div className="profileContainer">
       <button className="profileButton" onClick={openMenu}>
-      <i className="fa-solid fa-user"></i>
+        <i className="fa-solid fa-user"></i>
       </button>
       {showMenu && (
+
         <ul className="profile-dropdown">
-             <div className='loggedInUserNav'>
-                <li className="profileItem">Hello, {user.username.slice(0,10)}!</li>
-                <li className="profileItem" ><Link className="profileLink" to={`/profiles/${user.id}`}>My Profile</Link></li>
-                {/* <li className="profileItem">{user.email}</li> */}
-                <li className="profileItem">
-                <LogoutButton className='logout-button' />
-                </li>
-        {/* <ProfileButton user={sessionUser} /> */}
-           </div>
-          {/* {sessionLinks} */}
+          <div className='loggedInUserNav'>
+            <li className="profileItem">Hello, {user.username.slice(0, 10)}!</li>
+            <li className="profileItem" ><Link className="profileLink" to={`/profiles/${user.id}`}>My Profile</Link></li>
+            {/* <li className="profileItem">{user.email}</li> */}
+            <li className="profileItem">
+              <LogoutButton className='logout-button' />
+            </li>
+          </div>
         </ul>
+
       )}
     </div>
   );

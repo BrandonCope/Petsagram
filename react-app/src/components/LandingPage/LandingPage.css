@@ -8,6 +8,7 @@
 
 .landing-page-container {
     display: flex;
+    margin-right: 30px;
 }
 
 .landing-page-dog {
