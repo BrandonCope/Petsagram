@@ -9,7 +9,7 @@ import LoginModal from '../LoginModal';
 import SignupModal from '../SignupModal';
 import SearchBar from '../SearchBar';
 
-const NavBar = () => {
+const NavBar = ({loginForm, setLoginForm}) => {
   const user = useSelector(state => state.session.user)
   let sessionLinks;
   if (user) {
@@ -31,8 +31,8 @@ const NavBar = () => {
   } else {
     sessionLinks = (
       <>
-        <LoginModal />
-        <SignupModal />
+        <LoginModal loginForm= {loginForm} setLoginForm={setLoginForm} />
+        <SignupModal loginForm= {loginForm} setLoginForm={setLoginForm} />
       </>
     )
 

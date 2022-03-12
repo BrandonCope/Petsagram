@@ -12,7 +12,7 @@ const SearchPage = () => {
 
     const usersArr = Object.values(users)
 
-    // console.log(usersArr)
+    console.log(usersArr)
 
     const searchArr = usersArr.filter(({ username }) => {
         return username.toLowerCase().includes(location.state.detail.toLowerCase())

@@ -1,0 +1,15 @@
+.landing-page-body {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    align-items: center;
+    height: 100%;
+}
+
+.landing-page-container {
+    display: flex;
+}
+
+.landing-page-dog {
+    height: 500px;
+}
