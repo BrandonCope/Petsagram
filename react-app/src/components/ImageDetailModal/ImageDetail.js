@@ -45,28 +45,32 @@ const ImageDetail = ({image}) => {
                 <img alt={image.summary} className="image-detail-image" src={image.image}/>
             </div>
             <div className="image-detail-content">
+              <div className='hello-there'>
                 <div className="user-div">
-                    <p> {image.username} </p>
-                    <div>
-                      {sessionLinks}
-                      <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
-                    </div>
+                     <p> {image.username.length > 10 ? `${image.username.slice(0,10)}...` : image.username} </p>
+                      <div>
+                        {sessionLinks}
+                        <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
+                      </div>
 
                 </div>
-                <div>
-                    <p>
+
+              </div>
+              <div className='detail-summary-comments'>
+                    <p className='detail-summary'>
                         {image.summary}
                     </p>
                     <div>
                       <LikeButton image={ image } />
                       <LikeCounterModal image={ image } />
                     </div>
-                    <div>
+                    <p>Comments:</p>
+                    <div className='detail-comments'>
                       <DisplayComments image={ image }/>
                     </div>
-                    <div>
-                      <CreateCommentForm image = {image} />
-                    </div>
+                      <div className='detail-comment-form'>
+                        <CreateCommentForm image = {image} />
+                      </div>
                 </div>
             </div>
         </div>

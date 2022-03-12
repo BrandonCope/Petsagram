@@ -66,7 +66,7 @@ const ProfilePage = () => {
         if (followsId.includes(id.toString())) {
             sessionLinks = (
                 <div>
-                    <button className="" onClick={handleClickUnfollow}>
+                    <button className="follow-buttons" onClick={handleClickUnfollow}>
                         Unfollow
                     </button>
                 </div>
@@ -74,7 +74,7 @@ const ProfilePage = () => {
         } else {
             sessionLinks = (
                 <div>
-                    <button className="" onClick={handleClickFollow}>
+                    <button className="follow-buttons" onClick={handleClickFollow}>
                         Follow
                     </button>
                 </div>
@@ -86,13 +86,20 @@ const ProfilePage = () => {
 
     return (
         <div className='profile-div'>
-            <h2>{filterImageArry[0]?.username}</h2>
-            {sessionLinks}
-            <ProfileFollowersModal />
-            <ProfileFollowingModal />
+            <div className='profile-top-container'>
+                <h2>{filterImageArry[0]?.username.length > 10 ? `${filterImageArry[0]?.username.slice(0,10)}` : filterImageArry[0]?.username }</h2>
+                {sessionLinks}
+                <div className='following-buttons'>
+                <ProfileFollowersModal />
+                <ProfileFollowingModal />
+                </div>
+            </div>
+            <div className='profile-image-matrix'>
             {filterImageArry.map((image) =>
                 <ImageDetailModal key={image.id} image={image} />
             )}
+
+            </div>
         </div>
     )
 }

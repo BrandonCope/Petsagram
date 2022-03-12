@@ -40,6 +40,7 @@
 .feed-container-username {
     text-decoration: none;
     color: inherit;
+    font-weight: bold;
 }
 
 .feed-container-follow-modal-button {
