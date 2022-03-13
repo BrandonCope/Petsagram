@@ -1,11 +1,8 @@
-import { Link, useParams, Redirect } from "react-router-dom"
-// import { useImageDetailModal } from "../ImageDetailModal";
-import { NestedContext } from "../../context/NestedContext";
-import { useContext } from "react";
+import { Link, useParams } from "react-router-dom"
 
-const LikeCounterList = ({ imageLikes, setShowModal }) => {
-    // const { setShowModal } = useImageDetailModal();
-    const {setShowNestedModal} = useContext(NestedContext);
+
+const LikeCounterList = ({ imageLikes, setShowModal}) => {
+
 
     const {id} = useParams();
     // const history = useHistory();
@@ -19,7 +16,6 @@ const LikeCounterList = ({ imageLikes, setShowModal }) => {
 
     const handleLikeCounter = (e) => {
         if (id !== undefined && +id === +e.target.id) {
-            setShowNestedModal(false);
             setShowModal(false);
         }
     }

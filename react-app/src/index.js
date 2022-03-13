@@ -6,20 +6,17 @@ import App from './App';
 import configureStore from './store';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
-import { NestedContextProvider } from './context/NestedContext';
 
 const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <NestedContextProvider>
-        <ModalProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ModalProvider>
-      </NestedContextProvider>
+      <ModalProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
