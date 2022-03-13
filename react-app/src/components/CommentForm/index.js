@@ -15,7 +15,7 @@ function CreateCommentForm({ image }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(user) {
+        if (user) {
 
             const new_comment = {
                 image_id: image?.id,
@@ -61,7 +61,6 @@ function CreateCommentForm({ image }) {
                         rows="2"
                         column="15"
                         placeholder='Add a comment...'
-                        // required
                         maxLength="255"
                     >
                     </textarea>

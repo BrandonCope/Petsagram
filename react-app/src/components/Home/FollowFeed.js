@@ -9,14 +9,13 @@ import FollowUnfollowModal from "../FollowUnfollowModal"
 
 const FollowFeed = () => {
 
-    // const user = useSelector((state) => state.session.user)
     const images = useSelector((state) => state.images)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
 
     const set = new Set()
     followsId.forEach(follow => {
-        if(!set.has(follow)) {
+        if (!set.has(follow)) {
             set.add(follow)
         }
     })
@@ -34,20 +33,20 @@ const FollowFeed = () => {
             <h2>Following:</h2>
             {filterImagesArr?.map((image) => (
                 <div key={image.id} className="feed-container">
-                     <div className="feed-container-top">
-                    <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
-                        {image.username}
-                    </Link>
-                    <FollowUnfollowModal image={image}/>
+                    <div className="feed-container-top">
+                        <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
+                            {image.username}
+                        </Link>
+                        <FollowUnfollowModal image={image} />
                     </div>
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <div className="feed-container-lower">
-                    <FeedImageModal image={image}/>
-                    <FeedDisplayComments image={image}/>
+                        <FeedImageModal image={image} />
+                        <FeedDisplayComments image={image} />
                     </div>
                     <div>
-                        <CreateCommentForm image={image}/>
+                        <CreateCommentForm image={image} />
                     </div>
                 </div>
             ))}

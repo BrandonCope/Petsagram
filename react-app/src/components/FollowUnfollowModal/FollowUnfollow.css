@@ -1,39 +1,39 @@
 .follow-unfollow-modal {
-    width: 150px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .follow-cancel-button {
-    font-weight: bolder;
-    border: 0;
-    background-color: transparent;
-    width: 150px;
-    height: 50px;
-    border-bottom-left-radius: 10x;
-    border-bottom-right-radius: 10x;
-    /* padding-top: 20px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  font-weight: bolder;
+  border: 0;
+  background-color: transparent;
+  width: 150px;
+  height: 50px;
+  border-bottom-left-radius: 10x;
+  border-bottom-right-radius: 10x;
+  /* padding-top: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .follow-button {
-    cursor: pointer;
-    font-weight: bolder;
-    border: 0;
-    border-bottom: solid;
-    background-color: transparent;
-    width: 150px;
-    height: 50px;
-    border-bottom-left-radius: 10x;
-    border-bottom-right-radius: 10x;
-    /* padding-top: 20px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  cursor: pointer;
+  font-weight: bolder;
+  border: 0;
+  border-bottom: solid;
+  background-color: transparent;
+  width: 150px;
+  height: 50px;
+  border-bottom-left-radius: 10x;
+  border-bottom-right-radius: 10x;
+  /* padding-top: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

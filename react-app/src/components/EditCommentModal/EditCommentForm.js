@@ -8,7 +8,7 @@ function EditCommentForm({ comment, setShowModal }) {
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
     const [content, setContent] = useState(comment.content)
-    const {setShowEditModal} = useEditModal();
+    const { setShowEditModal } = useEditModal();
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {

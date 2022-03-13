@@ -30,22 +30,22 @@ const ProfilePage = () => {
     const users = useSelector((state) => state.users)
     const usersArr = Object.values(users)
 
-    let profileUser = usersArr.filter(user => user.id === +id)
+    let profileUser = usersArr?.filter(user => user.id === +id)
 
     if (user?.id === +id) {
         profileUser = [user]
     }
 
-    console.log(isLoaded)
-
     useEffect(() => {
         window.scrollTo(0, 0)
-        dispatch(getUserFollows(id)).then(data => {if (!data) history.push('/404')} )
+        dispatch(getUserFollows(id)).then(data => { if (!data) history.push('/404-Page-Not-Found') })
+    }, [dispatch, id,history])
+
+    useEffect(()=> {
         if (profileUser) {
             setIsLoaded(true)
         }
-    }, [dispatch, id,profileUser])
-
+    },[profileUser])
 
     const handleClickFollow = async (e) => {
         e.preventDefault()

@@ -5,7 +5,7 @@ import EditDeleteComment from './EditDeleteComment';
 export const EditModalContext = createContext()
 export const useEditModal = () => useContext(EditModalContext)
 
-function EditDeleteCommentModal({comment}) {
+function EditDeleteCommentModal({ comment }) {
   const [showEditModal, setShowEditModal] = useState(false);
 
   return (
@@ -14,11 +14,11 @@ function EditDeleteCommentModal({comment}) {
         showEditModal,
         setShowEditModal
       }}
-      >
+    >
       <button className='editDeleteImageModalButton' onClick={() => setShowEditModal(true)}>...</button>
       {showEditModal && (
         <Modal onClose={() => setShowEditModal(false)}>
-            <EditDeleteComment comment={comment} />
+          <EditDeleteComment comment={comment} />
         </Modal>
       )}
     </EditModalContext.Provider>

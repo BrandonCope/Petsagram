@@ -68,7 +68,8 @@ With this many-to-many relationship, querying specific users into the Following 
  - Follow users on Public Feed
  - Unfollow users
  - See lists of followers and followings on User Profile
-
+ - Can search for a user of their username
+ 
 **Technologies Used**
 
  - React.js

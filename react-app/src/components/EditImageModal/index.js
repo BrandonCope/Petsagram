@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditImageForm from './EditImageForm';
 import './EditImage.css'
 
-function EditImageModal({image}) {
+function EditImageModal({ image }) {
   const [showModal, setShowModal] = useState(false);
 
   return (

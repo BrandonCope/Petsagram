@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, NavLink, useLocation, useHistory } from 'react-router-dom';
+import { Redirect, useLocation, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = ({loginForm, setLoginForm}) => {
@@ -13,35 +13,35 @@ const SignUpForm = ({loginForm, setLoginForm}) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
+  
 
+  
   useEffect(() => {
+    let errors = []
     if (username.length >= 40) {
-        setErrors(['Username: Max length of 40 characters reached.'])
+        errors.push('Username: Max length of 40 characters reached.')
     }
     if (email.length >= 255) {
-        setErrors(['Email: Max length of 255 characters reached.'])
+        errors.push(['Email: Max length of 255 characters reached.'])
     }
-}, [username])
+    setErrors(errors)
+}, [username,email])
 
   const onSignUp = async (e) => {
     e.preventDefault();
 
     const confirm_password = repeatPassword
-    console.log(username)
-    console.log(confirm_password)
     const data = await dispatch(signUp(username, email, password, confirm_password));
     if (data) {
-      setErrors(data)
+      let errors = []
+      errors.push(...data)
+      setErrors(errors)
       if (password !== confirm_password) {
         setPassword("");
         setRepeatPassword("")
       }
     }
-    //  else {
-    //   // setErrors(['Password: Password and Confirm Password must match.'])
-    //   // setPassword("");
-    //   // setRepeatPassword("");
-    // }
+
   };
 
   const updateUsername = (e) => {

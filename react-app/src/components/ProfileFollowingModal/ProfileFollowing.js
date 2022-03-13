@@ -5,8 +5,8 @@ const ProfileFollowing = ({ following, closeModal }) => {
         <div className="liked-container">
             {following?.map(follow => (
                 <div className="like-name-div" key={follow.id}>
-                    <Link className="like-name-link" to={`/profiles/${follow.id}`} onClick={()=> closeModal(false)}>
-                        {follow.username.length > 10 ? `${follow.username.slice(0,10)}...` : follow.username}
+                    <Link className="like-name-link" to={`/profiles/${follow.id}`} onClick={() => closeModal(false)}>
+                        {follow.username.length > 10 ? `${follow.username.slice(0, 10)}...` : follow.username}
                     </Link>
                 </div>
             ))}

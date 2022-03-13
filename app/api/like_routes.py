@@ -17,7 +17,6 @@ def get_likes():
 def post_like():
     like = Like()
     likeData = request.get_json()
-    print("LIKEDATA!!!!!!", likeData)
     like.user_id = likeData['user_id']
     like.image_id = likeData['image_id']
 

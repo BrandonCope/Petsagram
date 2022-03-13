@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
-import {editImage} from '../../store/images'
-import { useDispatch} from 'react-redux'
+import { editImage } from '../../store/images'
+import { useDispatch } from 'react-redux'
 import { useEditModal } from '../EditDeleteModal'
 import './EditImage.css'
 
-function EditImageForm({image, setShowModal}) {
+function EditImageForm({ image, setShowModal }) {
     const dispatch = useDispatch();;
     const [summary, setSummary] = useState(image.summary);
     const { setShowEditModal } = useEditModal();
@@ -48,13 +48,12 @@ function EditImageForm({image, setShowModal}) {
                     ))}
                 </div>
                 <textarea className="summary-textarea"
-                placeholder={"Description..."}
-                value={summary}
-                onChange={(e) => setSummary(e.target.value)}
-                rows='7'
-                cols='45'
-                maxLength='255'
-                // required
+                    placeholder={"Description..."}
+                    value={summary}
+                    onChange={(e) => setSummary(e.target.value)}
+                    rows='7'
+                    cols='45'
+                    maxLength='255'
                 />
                 <button className="post-button" type='submit'>Submit</button>
                 <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>

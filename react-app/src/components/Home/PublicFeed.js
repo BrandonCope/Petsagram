@@ -22,19 +22,19 @@ const PublicFeed = () => {
             {filterImagesArr?.map((image) => (
                 <div className="feed-container" key={image.id}>
                     <div className="feed-container-top">
-                    <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
-                        {image.username}
-                    </Link>
-                    <FollowUnfollowModal image={image}/>
+                        <Link className="feed-container-username" to={`/profiles/${image.user_id}`}>
+                            {image.username}
+                        </Link>
+                        <FollowUnfollowModal image={image} />
                     </div>
 
                     <img alt={image.summary} className="feed-images" src={image.image}>
                     </img>
                     <div className="feed-container-lower">
-                        <FeedImageModal image={image}/>
+                        <FeedImageModal image={image} />
                         <FeedDisplayComments image={image} />
                     </div>
-                            <CreateCommentForm image={image} />
+                    <CreateCommentForm image={image} />
                 </div>
             ))}
         </div>

@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditCommentForm from './EditCommentForm';
 import './EditComments.css'
 
-function EditCommentModal({comment}) {
+function EditCommentModal({ comment }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ function EditCommentModal({comment}) {
       <button className='comment-edit-button' onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditCommentForm comment={comment} setShowModal={setShowModal}/>
+          <EditCommentForm comment={comment} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

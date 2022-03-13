@@ -1,71 +1,54 @@
 .image-detail-image {
-    width: 400px;
-    height: 400px;
-    box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  box-sizing: border-box;
 }
 
 .image-detail-component-page {
-    display: flex;
-    max-height: 400px;
-}
-
-.user-div {
-    /* display: flex;
-    height: 30px;
-    width: 100%; */
+  display: flex;
+  max-height: 400px;
 }
 
 .image-detail-cancel-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.image-detail-content{
-    display: flex;
-    flex-direction: column;
-    max-height: 400px;
-    max-width: 200px;
-    display: flex;
-    flex-direction: column;
-
+.image-detail-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-pictures {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 }
-.detail-summary-comments{
-    overflow-y: auto;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-    max-height: 315px;
+.detail-summary-comments {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  max-height: 315px;
 }
 
 .detail-summary {
-    /* max-height: 100px; */
-    overflow-y: auto;
-    overflow-wrap: break-word;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* width: 190px;
-    min-height: 10px; */
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .detail-comments {
-    overflow-y: auto;
-    overflow-wrap: break-word;
-    padding-left: 8px;
-    padding-right: 8px;
-    /* min-height: 120px; */
-    /* max-height: 33%; */
-    /* height: 150px; */
-    /* max-height: min(60% 170px); */
-    /* width: 100%; */
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
-
-
-.detail-comment-form{
-    margin-top: auto;
+.detail-comment-form {
+  margin-top: auto;
 }

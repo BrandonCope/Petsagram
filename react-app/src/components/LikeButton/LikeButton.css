@@ -1,49 +1,45 @@
 .feed-image-like-button {
-    background-color: transparent;
-    border: 0;
-    font-size: 13px;
-    font-size: large;
-    cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  font-size: 13px;
+  font-size: large;
+  cursor: pointer;
 }
 
 .fa-solid.fa-heart {
-    color: red;
-}
-
-.fa-regular.fa-heart {
-
+  color: red;
 }
 
 .likeCounterModalButton {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .liked-container {
-    width: 150px;
-    max-height: 150px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  width: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .like-name-div {
-    padding: 5px 0;
+  padding: 5px 0;
 }
 .like-name-link {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
 }
 .like-name-link:hover {
-    background-color: skyblue;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 3px;
-    color: white;
+  background-color: skyblue;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3px;
+  color: white;
 }

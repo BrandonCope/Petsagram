@@ -18,7 +18,7 @@ function FeedImageModal({ image }) {
       }}
     >
       <div className="feed-image-icon-div">
-        <LikeButton image={ image } />
+        <LikeButton image={image} />
         <button
           className="followModalButton"
           onClick={() => setShowModal(true)}
@@ -31,7 +31,7 @@ function FeedImageModal({ image }) {
           <FeedImageDetail image={image} />
         </Modal>
       )}
-      <LikeCounterModal image={ image } />
+      <LikeCounterModal image={image} />
     </FeedImageDetailModalContext.Provider>
   );
 }

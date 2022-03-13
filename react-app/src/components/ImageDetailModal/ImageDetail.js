@@ -50,7 +50,7 @@ const ImageDetail = ({ image }) => {
             <p className="feed-container-username"> {image.username.length > 10 ? `${image.username.slice(0, 10)}...` : image.username} </p>
             <div>
               {sessionLinks}
-              <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i class="fa-solid fa-xmark"></i></button>
+              <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i className="fa-solid fa-xmark"></i></button>
             </div>
 
           </div>

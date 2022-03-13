@@ -1,15 +1,11 @@
 import EditCommentModal from "../EditCommentModal";
 import { useEditModal } from ".";
-import { deleteImage } from "../../store/images"
 import { useDispatch } from "react-redux";
-import { useImageDetailModal } from "../ImageDetailModal";
-// import './EditDelete.css'
 import { deleteComment } from "../../store/comments";
 
 
-const EditDeleteComment = ({comment}) => {
-    const {setShowEditModal} = useEditModal()
-    // const {setShowModal} = useImageDetailModal()
+const EditDeleteComment = ({ comment }) => {
+    const { setShowEditModal } = useEditModal()
 
     const dispatch = useDispatch();
 
@@ -17,7 +13,6 @@ const EditDeleteComment = ({comment}) => {
         e.preventDefault()
 
         dispatch(deleteComment(comment.id))
-        // setShowModal(false)
     }
     return (
         <div className="image-edit-delete-container">
