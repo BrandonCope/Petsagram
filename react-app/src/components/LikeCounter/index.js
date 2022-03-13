@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Modal } from "../../context/Modal";
 import { useSelector } from "react-redux";
 import LikeCounterList from "./LikeCounterList";
+// import {NestedContext} from "../../context/NestedContext"
 
 function LikeCounterModal({ image }) {
   const [showModal, setShowModal] = useState(false);
+  // const {showNestedModal, setShowNestedModal} = useContext(NestedContext);
   const stateLikes = useSelector((state) => state.likes);
   const likes = Object.values(stateLikes);
   const imageLikes = likes.filter((like) => like.image_id === image.id);
@@ -37,7 +39,7 @@ function LikeCounterModal({ image }) {
           </button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <LikeCounterList imageLikes={imageLikes} />
+              <LikeCounterList imageLikes={imageLikes} setShowModal= {setShowModal} />
             </Modal>
           )}
         </div>
