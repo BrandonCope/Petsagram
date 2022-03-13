@@ -5,14 +5,6 @@ const LikeCounterList = ({ imageLikes, setShowModal}) => {
 
 
     const {id} = useParams();
-    // const history = useHistory();
-    console.log(id);
-    // let filterArr;
-    // if (id !== undefined) {
-    //     filterArr = imageLikes?.filter(like => {
-    //         return like.user_id !== +id;
-    //     })
-    // }
 
     const handleLikeCounter = (e) => {
         if (id !== undefined && +id === +e.target.id) {
