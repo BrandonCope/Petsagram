@@ -28,7 +28,7 @@ def get_images():
 @image_routes.route('/', methods=["POST"])
 @login_required
 def post_images():
-    # print(request.files["image"])
+
     if "image" not in request.files:
         return {"errors": ["Error: Image required"]}, 400
 
@@ -78,7 +78,6 @@ def edit_image(id):
         form.populate_obj(edit_image)
 
         db.session.commit()
-        print('......', edit_image.to_dict())
         return edit_image.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400

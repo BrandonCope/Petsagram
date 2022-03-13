@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from "react-redux";
 import './Footer.css'
 
@@ -41,14 +40,14 @@ function AboutMenu({ user }) {
                                     </Link>
                                 </div>
                                 <div className="team-member-icons">
-                                    <a href="https://github.com/BrandonCope" target="_blank">
+                                    <a href="https://github.com/BrandonCope" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-github">
-                                            <i class="fa-brands fa-github"></i>
+                                            <i className="fa-brands fa-github"></i>
                                         </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/brandoncopeland97/" target="_blank">
+                                    <a href="https://www.linkedin.com/in/brandoncopeland97/" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-linkedin">
-                                            <i class="fa-brands fa-linkedin"></i>
+                                            <i className="fa-brands fa-linkedin"></i>
                                         </div>
                                     </a>
                                 </div>
@@ -62,14 +61,14 @@ function AboutMenu({ user }) {
                                     </Link>
                                 </div>
                                 <div className="team-member-icons">
-                                    <a href="https://github.com/vth-co" target="_blank">
+                                    <a href="https://github.com/vth-co" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-github">
-                                            <i class="fa-brands fa-github"></i>
+                                            <i className="fa-brands fa-github"></i>
                                         </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/vu-co/" target="_blank">
+                                    <a href="https://www.linkedin.com/in/vu-co/" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-linkedin">
-                                            <i class="fa-brands fa-linkedin"></i>
+                                            <i className="fa-brands fa-linkedin"></i>
                                         </div>
                                     </a>
                                 </div>
@@ -83,14 +82,14 @@ function AboutMenu({ user }) {
                                     </Link>
                                 </div>
                                 <div className="team-member-icons">
-                                    <a href="https://github.com/vernfongchao" target="_blank">
+                                    <a href="https://github.com/vernfongchao" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-github">
-                                            <i class="fa-brands fa-github"></i>
+                                            <i className="fa-brands fa-github"></i>
                                         </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/vern-chao-a2960a123/" target="_blank">
+                                    <a href="https://www.linkedin.com/in/vern-chao-a2960a123/" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-linkedin">
-                                            <i class="fa-brands fa-linkedin"></i>
+                                            <i className="fa-brands fa-linkedin"></i>
                                         </div>
                                     </a>
                                 </div>
@@ -104,14 +103,14 @@ function AboutMenu({ user }) {
                                     </Link>
                                 </div>
                                 <div className="team-member-icons">
-                                    <a href="https://github.com/davidalliger" target="_blank">
+                                    <a href="https://github.com/davidalliger" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-github">
-                                            <i class="fa-brands fa-github"></i>
+                                            <i className="fa-brands fa-github"></i>
                                         </div>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/david-alliger-a73351208/" target="_blank">
+                                    <a href="https://www.linkedin.com/in/david-alliger-a73351208/" target="_blank" rel="noopener noreferrer">
                                         <div className="team-member-linkedin">
-                                            <i class="fa-brands fa-linkedin"></i>
+                                            <i className="fa-brands fa-linkedin"></i>
                                         </div>
                                     </a>
                                 </div>

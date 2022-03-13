@@ -11,10 +11,9 @@
 }
 
 .fa-solid.fa-square-plus{
-    /* width: 30px;
-    height: 30px; */
+
     font-size: 33px;
-    /* padding: 0; */
+
 }
 
 /* Post Form */
@@ -23,7 +22,6 @@
     display: flex;
     flex-direction: column;
     height: 330px;
-    /* justify-content: space-between; */
 }
 
 .post-form {
@@ -43,21 +41,6 @@
     cursor: pointer;
 }
 
-/* #file-upload-button {
-    background-color: skyblue;
-    border-radius: 3px;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-input[type="file"] {
-    background-color: skyblue;
-    border-radius: 3px;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-} */
 
 ::file-selector-button {
     background-color: skyblue;

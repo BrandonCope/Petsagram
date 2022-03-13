@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react"
-import {createImage} from '../../store/images'
+import { createImage } from '../../store/images'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import './CreateImage.css'
 
-function CreateImage({setShowModal}) {
+function CreateImage({ setShowModal }) {
     const dispatch = useDispatch();
     const [imageUrl, setImageUrl] = useState('');
     const [summary, setSummary] = useState('');
     const [errors, setErrors] = useState([]);
-    // const [imageLoading, setImageLoading] = useState(false);
     const user = useSelector((state) => state.session.user?.id);
     const history = useHistory()
 
@@ -29,23 +28,22 @@ function CreateImage({setShowModal}) {
 
     const handleSubmit = async e => {
 
-            e.preventDefault();
+        e.preventDefault();
 
-            const formData = new FormData()
-            formData.append("image", imageUrl)
-            formData.append('summary', summary)
-            formData.append('user_id', user)
+        const formData = new FormData()
+        formData.append("image", imageUrl)
+        formData.append('summary', summary)
+        formData.append('user_id', user)
 
 
-            const data = await dispatch(createImage(formData))
-            if (data.errors) {
-                let errorsValues = data.errors
-                setErrors(errorsValues)
-                console.log(errors);
-            } else {
-                setShowModal(false)
-                history.push(`/profiles/${user}`)
-            }
+        const data = await dispatch(createImage(formData))
+        if (data.errors) {
+            let errorsValues = data.errors
+            setErrors(errorsValues)
+        } else {
+            setShowModal(false)
+            history.push(`/profiles/${user}`)
+        }
     }
 
     return (
@@ -58,22 +56,19 @@ function CreateImage({setShowModal}) {
                     ))}
                 </div>
                 <input
-                id="file-upload"
-                type='file'
-                accept="image/*"
-                name="image"
-                onChange={updateImage}
-                // required
+                    id="file-upload"
+                    type='file'
+                    accept="image/*"
+                    name="image"
+                    onChange={updateImage}
                 />
-                {/* {(imageLoading)} */}
                 <textarea className="summary-textarea"
-                placeholder="Description..."
-                value={summary}
-                onChange={(e) => setSummary(e.target.value)}
-                rows='7'
-                cols='45'
-                maxLength='255'
-                // required
+                    placeholder="Description..."
+                    value={summary}
+                    onChange={(e) => setSummary(e.target.value)}
+                    rows='7'
+                    cols='45'
+                    maxLength='255'
                 />
                 <button className="post-button" type='submit'>Submit</button>
                 <button className="post-button" onClick={() => setShowModal(false)}>Cancel</button>

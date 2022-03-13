@@ -2,14 +2,6 @@
 body {
     background-color: ghostwhite;
 }
-/*
-#root {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    align-items: flex-end;
-    height: 500px;
-} */
 
 .login-form-container {
     border: solid;
@@ -44,15 +36,10 @@ body {
     border-radius: 3px;
     padding: 5px;
     color: white;
-    /* width: 183px; */
+    cursor: pointer;
 
 }
 
-/* .login-form-errors{
-    position: relative;
-    right: 15px;
-    width: 300px;
-} */
 
 .sign-up-redirect-container {
     display: flex;
@@ -75,8 +62,6 @@ body {
     height: auto;
     align-items: center;
     height: 100%;
-    /* margin-top: 33%; */
-    /* height: 500px; */
 }
 
 .signup-form-container {
@@ -97,14 +82,8 @@ body {
     justify-content: space-around;
     height: 300px;
     width: 183px;
-    /* padding-bottom: 20px; */
 }
 
-/* .signup-form-errors{
-    position: relative;
-    right: 40px;
-    width: 300px;
-} */
 
 .login-redirect-container {
     display: flex;
@@ -135,7 +114,6 @@ body {
 .error-message {
     color: red;
     font-size: 13px;
-    /* margin-left: 30px; */
 }
 
 .switchFormButton {

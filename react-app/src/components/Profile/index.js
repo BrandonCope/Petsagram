@@ -25,60 +25,27 @@ const ProfilePage = () => {
     const user = useSelector((state) => state.session.user)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
-    const [isLoaded, setIsLoaded] = useState()
-
-    // console.log(followsId)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const users = useSelector((state) => state.users)
     const usersArr = Object.values(users)
 
-    // const set = new Set()
-
-    let profileUser = usersArr.filter(user => user.id === +id)
-    console.log(profileUser)
+    let profileUser = usersArr?.filter(user => user.id === +id)
 
     if (user?.id === +id) {
         profileUser = [user]
     }
 
-
-    console.log(isLoaded)
-
     useEffect(() => {
         window.scrollTo(0, 0)
-        if (profileUser.length) {
-            dispatch(getUserFollows(id))
+        dispatch(getUserFollows(id)).then(data => { if (!data) history.push('/404-Page-Not-Found') })
+    }, [dispatch, id,history])
+
+    useEffect(()=> {
+        if (profileUser) {
             setIsLoaded(true)
         }
-        // usersArr?.forEach(({ id }) => (
-        //     set.add(id.toString())
-        // ))
-        // console.log(set)
-
-        // const timer = setTimeout(() => {
-        //     if (!set.has(id.toString())) {
-        //         history.push('/404')
-        //     }
-        // }, 1000)
-
-        // return () => clearTimeout(timer)
-    }, [dispatch, id,profileUser])
-
-
-    useEffect(() => {
-        if(isLoaded === true){
-            if(profileUser.length < 1){
-                history.push('/404')
-            }
-        }
-    }, [isLoaded])
-
-    // useEffect(() => {
-    //     dispatch(getUserFollows(id))
-    //     window.scrollTo(0, 0)
-    // }, [dispatch, id])
-
-
+    },[profileUser])
 
     const handleClickFollow = async (e) => {
         e.preventDefault()
@@ -103,10 +70,6 @@ const ProfilePage = () => {
         await dispatch(deleteFollow(delete_follow))
         await dispatch(getUserFollows(id))
     }
-
-    // console.log(followsId.includes(JSON.stringify(id)))
-    // console.log(user?.id !== id)
-
 
     let sessionLinks
     if (user && user?.id !== +id) {

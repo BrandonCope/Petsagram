@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import './ErrorPage.css'
 
 const ErrorPage = () => {
-    return(
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    return (
         <div className='error-page-container'>
             <h1>404 Page Not Found</h1>
         </div>

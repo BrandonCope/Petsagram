@@ -6,11 +6,9 @@ export const getUserFollows = (id) => async dispatch => {
     const response = await fetch(`/api/follows/users/${id}`)
     if(response.ok) {
         const follows = await response.json();
-        
         dispatch(loadUserFollows(follows))
         return follows;
     }
-    return response;
 }
 
 const initialState = {

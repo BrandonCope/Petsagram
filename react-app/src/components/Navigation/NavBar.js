@@ -9,7 +9,7 @@ import LoginModal from '../LoginModal';
 import SignupModal from '../SignupModal';
 import SearchBar from '../SearchBar';
 
-const NavBar = ({loginForm, setLoginForm}) => {
+const NavBar = ({ loginForm, setLoginForm }) => {
   const user = useSelector(state => state.session.user)
   let sessionLinks;
   if (user) {
@@ -31,8 +31,8 @@ const NavBar = ({loginForm, setLoginForm}) => {
   } else {
     sessionLinks = (
       <>
-        <LoginModal loginForm= {loginForm} setLoginForm={setLoginForm} />
-        <SignupModal loginForm= {loginForm} setLoginForm={setLoginForm} />
+        <LoginModal loginForm={loginForm} setLoginForm={setLoginForm} />
+        <SignupModal loginForm={loginForm} setLoginForm={setLoginForm} />
       </>
     )
 
@@ -41,37 +41,18 @@ const NavBar = ({loginForm, setLoginForm}) => {
 
   return (
     <div className='nav-body-div'>
-    <nav className='nav-container'>
-          <NavLink className="Nav-logo-container" to="/" >
-            <h2>Petsagram</h2>
-          </NavLink>
+      <nav className='nav-container'>
+        <NavLink className="Nav-logo-container" to="/" >
+          <h2>Petsagram</h2>
+        </NavLink>
         <SearchBar className='search-bar' />
-      <ul>
-        <div className='nav-session-links'>
-        {sessionLinks}
-        </div>
-         {/* <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li> */}
-      </ul>
-    </nav>
+        <ul>
+          <div className='nav-session-links'>
+            {sessionLinks}
+          </div>
+
+        </ul>
+      </nav>
 
     </div>
   );

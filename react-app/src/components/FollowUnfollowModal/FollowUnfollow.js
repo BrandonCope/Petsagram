@@ -6,18 +6,17 @@ import { getUserFollows } from "../../store/profile_follows";
 import './FollowUnfollow.css'
 
 
-const FollowUnfollow = ({image}) => {
-    const {setShowModal} = useFollowUnfollowModal()
+const FollowUnfollow = ({ image }) => {
+    const { setShowModal } = useFollowUnfollowModal()
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
-    // const follow = useSelector((state) => state.follows)
     const follows = useSelector((state) => state.follows.following)
     const followsId = Object.keys(follows)
 
     const handleClickFollow = async (e) => {
         e.preventDefault()
 
-       const new_follow = {
+        const new_follow = {
             target_id: image?.user_id,
             user_id: user?.id
         }
@@ -42,17 +41,17 @@ const FollowUnfollow = ({image}) => {
     if (followsId.includes(image?.user_id.toString())) {
         sessionLinks = (
             <div>
-                 <button className="follow-button" onClick={handleClickUnfollow}>
-                Unfollow
+                <button className="follow-button" onClick={handleClickUnfollow}>
+                    Unfollow
                 </button>
             </div>
         );
     } else {
         sessionLinks = (
             <div>
-                 <button className="follow-button" onClick={handleClickFollow}>
-                Follow
-                 </button>
+                <button className="follow-button" onClick={handleClickFollow}>
+                    Follow
+                </button>
             </div>
         )
     }
