@@ -8,7 +8,6 @@ export const useImageDetailModal = () => useContext(ImageDetailModalContext)
 function ImageDetailModal({ image }) {
   const [showModal, setShowModal] = useState(false);
 
-
   return (
     <ImageDetailModalContext.Provider
       value={{
@@ -16,12 +15,14 @@ function ImageDetailModal({ image }) {
         setShowModal
       }}
     >
-      <button className='followModalButton' onClick={() => setShowModal(true)}><img alt={image.summary} className='user-pictures' src={image.image}></img></button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <ImageDetail image={image} />
-        </Modal>
-      )}
+    <div>
+        <button className='followModalButton' onClick={() => setShowModal(true)}><img alt={image.summary} className='user-pictures' src={image.image}></img></button>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <ImageDetail image={image} setShowModal={setShowModal} />
+          </Modal>
+        )}
+    </div>
     </ImageDetailModalContext.Provider>
   );
 }

@@ -1,6 +1,5 @@
 import EditDeleteModal from "../EditDeleteModal"
 import './ImageDetail.css'
-import { useImageDetailModal } from "./index";
 import { useSelector } from 'react-redux';
 import LikeButton from "../LikeButton";
 import LikeCounterModal from "../LikeCounter";
@@ -9,8 +8,7 @@ import DisplayComments from "../DisplayComments";
 import CreateCommentForm from "../CommentForm";
 import { useHistory } from "react-router-dom";
 
-const ImageDetail = ({ image }) => {
-  const { setShowModal } = useImageDetailModal()
+const ImageDetail = ({ image, setShowModal}) => {
   const history = useHistory();
 
   const user = useSelector(state => state.session.user)
@@ -62,7 +60,7 @@ const ImageDetail = ({ image }) => {
           </p>
           <div>
             <LikeButton image={image} />
-            <LikeCounterModal image={image} />
+            <LikeCounterModal image={image} setShowModal={setShowModal}/>
           </div>
           <p>Comments:</p>
           <div className='detail-comments'>
