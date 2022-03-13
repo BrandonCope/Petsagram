@@ -30,11 +30,11 @@ Petsagrams's redux state shape for our react frontend
 
 ## Screenshots
 
-Welcome:
+Welcome: ![image](https://user-images.githubusercontent.com/91238232/158043040-69ab2095-ad5b-4b14-9419-18c3a7a4b31e.png)
 
-Home:
+Home:![image](https://user-images.githubusercontent.com/91238232/158043071-b3c2b3e9-5e0e-4d1a-a4dd-e5f0ef244aa5.png)
 
-User's Profile:
+User's Profile: ![image](https://user-images.githubusercontent.com/91238232/158043100-411260e6-407b-4ed3-a027-7e16ca804ee9.png)
 
 
 ## Technical Details

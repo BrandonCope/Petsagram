@@ -9,6 +9,7 @@ import ProfilePage from './components/Profile';
 import HomePage from './components/Home';
 import SearchPage from './components/SearchBar/SearchPage';
 import LandingPage from './components/LandingPage';
+import ErrorPage from './components/404';
 import { authenticate } from './store/session';
 import { getImages } from './store/images';
 import { getFollows_user } from './store/follow';
@@ -50,7 +51,7 @@ function App() {
     return null;
   }
 
-  return (
+  return (loaded &&
     <>
       {notLandingPage && (<NavBar loginForm= {loginForm} setLoginForm={setLoginForm} />)}
       {notLandingPage && (<Footer />)}
@@ -71,7 +72,7 @@ function App() {
           <SearchPage />
         </Route>
         <Route>
-          <h1>404: PAGE NOT FOUND!</h1>
+          <ErrorPage />
         </Route>
       </Switch>
     </>
