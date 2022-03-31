@@ -9,7 +9,7 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     image_id = db.Column(db.Integer, db.ForeignKey("images.id"), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now(), server_onupdate=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now(), onupdate=db.func.current_timestamp)
 
     user = db.relationship('User', back_populates='comments')
     image = db.relationship('Image', back_populates='comments')
