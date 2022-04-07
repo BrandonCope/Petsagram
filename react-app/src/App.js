@@ -32,13 +32,15 @@ function App() {
     else setNotLandingPage(true)
   }, [user, location])
 
-  useEffect(() => {
-    dispatch(authenticate());
-    dispatch(getImages());
-    dispatch(getLikes());
-    dispatch(getComments());
-    dispatch(getUsers())
-    setLoaded(true);
+  useEffect(() =>  {
+    (async () => {
+      await dispatch(authenticate());
+      await dispatch(getImages());
+      await dispatch(getLikes());
+      await dispatch(getComments());
+      await dispatch(getUsers())
+      await setLoaded(true);
+    })();
   }, [dispatch])
 
   useEffect(() => {

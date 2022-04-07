@@ -31,13 +31,15 @@ function AboutMenu({ user }) {
         <>
             <div className="about-menu-modal">
                 {showMenu && (
-                    <ul className="about-menu-container">
+                    <ul onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)} className="about-menu-container">
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    <Link to={`/profiles/${users[2].id}`}>
+                                    {/* <Link to={`/profiles/${users[2].id}`}> */}
+                                    <a href="https://brandoncope.github.io/" target="_blank" rel="noopener noreferrer">
                                         Brandon Copeland
-                                    </Link>
+                                    </a>
+                                    {/* </Link> */}
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/BrandonCope" target="_blank" rel="noopener noreferrer">
@@ -56,9 +58,12 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    <Link to={`/profiles/${users[3].id}`}>
+                                    {/* <Link to={`/profiles/${users[3].id}`}> */}
+                                        <a href="https://vth-co.github.io/" target="_blank" rel="noopener noreferrer">
                                         Vu Co
-                                    </Link>
+
+                                        </a>
+                                    {/* </Link> */}
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/vth-co" target="_blank" rel="noopener noreferrer">
@@ -77,9 +82,12 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    <Link to={`/profiles/${users[0].id}`}>
+                                    {/* <Link to={`/profiles/${users[0].id}`}> */}
+                                        <a href="https://vernfongchao.github.io/" target="_blank" rel="noopener noreferrer" >
                                         Vern Chao
-                                    </Link>
+
+                                        </a>
+                                    {/* </Link> */}
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/vernfongchao" target="_blank" rel="noopener noreferrer">
@@ -98,9 +106,12 @@ function AboutMenu({ user }) {
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
-                                    <Link to={`/profiles/${users[1].id}`}>
+                                    {/* <Link to={`/profiles/${users[1].id}`}> */}
+                                      <a href="https://davidalliger.github.io/" target="_blank" rel="noopener noreferrer">
                                         David Alliger
-                                    </Link>
+
+                                      </a>
+                                    {/* </Link> */}
                                 </div>
                                 <div className="team-member-icons">
                                     <a href="https://github.com/davidalliger" target="_blank" rel="noopener noreferrer">
@@ -119,7 +130,7 @@ function AboutMenu({ user }) {
                     </ul>
                 )}
             </div>
-            <button className="about-menu-open" onClick={openMenu}>
+            <button onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)}  className="about-menu-open" onClick={openMenu}>
                 About
             </button>
         </>

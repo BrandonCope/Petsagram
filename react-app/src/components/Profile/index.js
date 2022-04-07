@@ -36,9 +36,14 @@ const ProfilePage = () => {
         profileUser = [user]
     }
 
+    if (users[id] === undefined) {
+        history.push('/404-Page-Not-Found')
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
-        dispatch(getUserFollows(id)).then(data => { if (!data) history.push('/404-Page-Not-Found') })
+        dispatch(getUserFollows(id))
+        // .then(data => { if (!data) history.push('/404-Page-Not-Found') })
     }, [dispatch, id,history])
 
     useEffect(()=> {

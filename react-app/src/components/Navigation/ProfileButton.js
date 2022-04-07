@@ -29,12 +29,12 @@ function ProfileButton({ user }) {
 
   return (
     <div className="profileContainer">
-      <button className="profileButton" onClick={openMenu}>
+      <button onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)} className="profileButton" onClick={openMenu}>
         <i className="fa-solid fa-user"></i>
       </button>
       {showMenu && (
 
-        <ul className="profile-dropdown">
+        <ul onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)} className="profile-dropdown">
           <div className='loggedInUserNav'>
             <li className="profileItem">Hello, {user.username.slice(0, 10)}!</li>
             <li className="profileItem" ><Link className="profileLink" to={`/profiles/${user.id}`}>My Profile</Link></li>
