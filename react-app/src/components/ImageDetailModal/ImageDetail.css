@@ -33,6 +33,7 @@
   overflow-x: hidden;
   overflow-wrap: break-word;
   max-height: 315px;
+  margin-left: 5px;
 }
 
 .detail-summary {

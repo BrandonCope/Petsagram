@@ -23,13 +23,15 @@ const SearchPage = () => {
 
     return (
         <div className='search-page-container'>
-            {searchArr?.map(({ username, id }) => (
+            <p>Search Results: </p>
+            {searchArr.length ? searchArr?.map(({ username, id }) => (
                 <Link className='searchLink' to={`profiles/${id}`} key={id}>
                     <p>
+                        <i id="search-icon" className="fa-solid fa-user search-icon"></i>
                         {username}
                     </p>
                 </Link>
-            ))}
+            )) : <><p>No results found!</p></>}
         </div>
     )
 }

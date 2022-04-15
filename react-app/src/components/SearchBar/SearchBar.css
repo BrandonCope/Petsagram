@@ -4,6 +4,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-weight: bolder;
+}
+
+#search-icon {
+    font-size: 20px;
+    margin-right: 3px;
+    /* color: rebeccapurple; */
 }
 
 .search-bar-button {
