@@ -29,14 +29,14 @@ function AboutMenu({ user }) {
 
     return (
         <>
-            <div className="about-menu-modal">
+            <div onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)} className="about-menu-modal">
                 {showMenu && (
-                    <ul onMouseEnter={() => setShowMenu(true)} onMouseLeave={() => setShowMenu(false)} className="about-menu-container">
+                    <ul  className="about-menu-container">
                         <li className="team-member-li">
                             <div className="team-member">
                                 <div className="team-member-name">
                                     {/* <Link to={`/profiles/${users[2].id}`}> */}
-                                    <a href="https://brandoncope.github.io/" target="_blank" rel="noopener noreferrer">
+                                    <a className="portfolio-link" href="https://brandoncope.github.io/" target="_blank" rel="noopener noreferrer">
                                         Brandon Copeland
                                     </a>
                                     {/* </Link> */}
@@ -59,7 +59,7 @@ function AboutMenu({ user }) {
                             <div className="team-member">
                                 <div className="team-member-name">
                                     {/* <Link to={`/profiles/${users[3].id}`}> */}
-                                        <a href="https://vth-co.github.io/" target="_blank" rel="noopener noreferrer">
+                                        <a className="portfolio-link" href="https://vth-co.github.io/" target="_blank" rel="noopener noreferrer">
                                         Vu Co
 
                                         </a>
@@ -83,7 +83,7 @@ function AboutMenu({ user }) {
                             <div className="team-member">
                                 <div className="team-member-name">
                                     {/* <Link to={`/profiles/${users[0].id}`}> */}
-                                        <a href="https://vernfongchao.github.io/" target="_blank" rel="noopener noreferrer" >
+                                        <a className="portfolio-link" href="https://vernfongchao.github.io/" target="_blank" rel="noopener noreferrer" >
                                         Vern Chao
 
                                         </a>
@@ -107,7 +107,7 @@ function AboutMenu({ user }) {
                             <div className="team-member">
                                 <div className="team-member-name">
                                     {/* <Link to={`/profiles/${users[1].id}`}> */}
-                                      <a href="https://davidalliger.github.io/" target="_blank" rel="noopener noreferrer">
+                                      <a className="portfolio-link" href="https://davidalliger.github.io/" target="_blank" rel="noopener noreferrer">
                                         David Alliger
 
                                       </a>

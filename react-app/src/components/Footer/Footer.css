@@ -29,6 +29,8 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
+  color: skyblue;
+  font-weight: bold;
 }
 .team-member-li {
   padding: 0 10px;
@@ -59,7 +61,7 @@
   border: black solid;
   background-color: white;
   border-radius: 10px;
-  bottom: 30px;
+  bottom: 25px;
   height: 150px;
   width: 250px;
   right: 100px;
@@ -74,4 +76,15 @@
   font-size: 14px;
   margin: 0;
   padding: 0;
+}
+
+.portfolio-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-link:hover {
+  background-color: skyblue;
+  padding: 5px;
+  border-radius: 5px;
 }

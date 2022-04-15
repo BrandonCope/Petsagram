@@ -3,6 +3,7 @@ html,body,#root {
     width: auto;
     height: 100%;
     margin: 0;
+    font-family: sans-serif;
 }
 
 ::-webkit-scrollbar {

@@ -43,10 +43,12 @@ body {
 .sign-up-redirect-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 210px;
+    justify-content: center;
+    width: 300px;
+    font-size: 13px;
 
 }
+
 
 .sign-up-redirect {
     text-decoration: none;
@@ -89,7 +91,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 160px;
-
+    font-size: 13px;
 }
 
 .login-redirect {
@@ -119,4 +121,6 @@ body {
     font-weight: bold;
     cursor: pointer;
     color: skyblue;
+    /* width: 150px; */
+    margin-left: 10px;
 }
