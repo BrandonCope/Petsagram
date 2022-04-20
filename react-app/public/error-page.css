@@ -1,0 +1,54 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+.landing-page-body {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    align-items: center;
+    height: 100%;
+    width: 100%
+}
+
+.landing-page-container {
+    display: flex;
+    margin-right: 30px;
+}
+
+.landing-page-dog {
+    height: 500px;
+}
+
+#error-message {
+    font-family: sans-serif;
+    width: 400px;
+}
+
+.portfolio-link {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.portfolio-link:hover {
+background-color: skyblue;
+padding: 5px;
+border-radius: 5px;
+}
+ul {
+    list-style-type: none;
+    padding-top: 15px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+}

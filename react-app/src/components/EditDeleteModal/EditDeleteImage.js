@@ -6,9 +6,9 @@ import { useImageDetailModal } from "../ImageDetailModal";
 import './EditDelete.css'
 
 
-const EditDeleteImage = ({ image }) => {
+const EditDeleteImage = ({ image, setShowModal }) => {
     const { setShowEditModal } = useEditModal()
-    const { setShowModal } = useImageDetailModal()
+    // const { setShowModal } = useImageDetailModal()
 
     const dispatch = useDispatch();
 
