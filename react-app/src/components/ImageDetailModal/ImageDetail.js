@@ -17,7 +17,7 @@ const ImageDetail = ({ image, setShowModal}) => {
     if (user?.id === image?.user_id) {
       sessionLinks = (
         <>
-          <EditDeleteModal image={image} />
+          <EditDeleteModal image={image} setShowModal={setShowModal} />
         </>
       )
     } else {

@@ -27,7 +27,7 @@ const FeedImageDetail = ({ image }) => {
                         </Link>
                         <div>
                             {(user.id === image.user_id) && (
-                                <EditDeleteModal image={image} />
+                                <EditDeleteModal image={image} setShowModal={setShowModal} />
                             )}
                             {(user.id !== image.user_id) && (
                                 <FollowUnfollowModal image={image} />
