@@ -6,10 +6,13 @@ import LikeCounterModal from '../LikeCounter';
 import { Link } from "react-router-dom"
 import CreateCommentForm from '../CommentForm';
 import DisplayComments from '../DisplayComments';
+import { useSelector } from 'react-redux';
+import EditDeleteModal from '../EditDeleteModal';
 
 
 const FeedImageDetail = ({ image }) => {
     const { setShowModal } = useFeedImageDetailModal()
+    const user = useSelector(state => state.session.user)
 
     return (
         <div className="image-detail-component-page">
@@ -23,7 +26,12 @@ const FeedImageDetail = ({ image }) => {
                             {image.username.length > 10 ? `${image.username.slice(0, 10)}...` : image.username}
                         </Link>
                         <div>
-                            <FollowUnfollowModal image={image} />
+                            {(user.id === image.user_id) && (
+                                <EditDeleteModal image={image} />
+                            )}
+                            {(user.id !== image.user_id) && (
+                                <FollowUnfollowModal image={image} />
+                            )}
                             <button className="image-detail-cancel-button" onClick={() => setShowModal(false)}><i className="fa-solid fa-xmark"></i></button>
                         </div>
 
